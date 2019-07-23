@@ -167,8 +167,7 @@
 const IS_DEV = NODE_ENV === "development";
 
 const PORT = IS_DEV ? 8080 : process.env.PORT;
-const requestUri = IS_DEV ? "https://dev.pobo.ru/api"
-    : "https://pobo.ru/api";
+const requestUri = IS_DEV ? "https://dev.pobo.ru/api" : "https://pobo.ru/api";
 
 module.exports = {
     IS_DEV,
@@ -209,21 +208,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_sticky__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_sticky__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _Header_Header__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Header/Header */ "./src/components/Header/Header.js");
-/* harmony import */ var _FooterComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./FooterComponent */ "./src/components/FooterComponent.js");
-/* harmony import */ var _MainContent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./MainContent */ "./src/components/MainContent.js");
-/* harmony import */ var _Modals_AuthModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Modals/AuthModal */ "./src/components/Modals/AuthModal.js");
-/* harmony import */ var _Pages_PersonalArea_PersonalArea__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Pages/PersonalArea/PersonalArea */ "./src/components/Pages/PersonalArea/PersonalArea.js");
-/* harmony import */ var _Pages_SalesArea__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Pages/SalesArea */ "./src/components/Pages/SalesArea.js");
-/* harmony import */ var _Pages_Legal_Legal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Pages/Legal/Legal */ "./src/components/Pages/Legal/Legal.js");
-/* harmony import */ var _Pages_About_About__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Pages/About/About */ "./src/components/Pages/About/About.js");
-/* harmony import */ var _Pages_Restaurants_Restaurants__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Pages/Restaurants/Restaurants */ "./src/components/Pages/Restaurants/Restaurants.js");
-/* harmony import */ var _Pages_BasketArea__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Pages/BasketArea */ "./src/components/Pages/BasketArea.js");
-/* harmony import */ var _Pages_PaymentArea_PaymentArea__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Pages/PaymentArea/PaymentArea */ "./src/components/Pages/PaymentArea/PaymentArea.js");
-/* harmony import */ var _Pages_StatusArea__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Pages/StatusArea */ "./src/components/Pages/StatusArea.js");
-/* harmony import */ var _Pages_Constructor_Constructor__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Pages/Constructor/Constructor */ "./src/components/Pages/Constructor/Constructor.js");
-/* harmony import */ var _Pages_MobileAuthArea__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./Pages/MobileAuthArea */ "./src/components/Pages/MobileAuthArea.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./helpers */ "./src/components/helpers.js");
+/* harmony import */ var react_facebook_pixel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-facebook-pixel */ "./node_modules/react-facebook-pixel/dist/fb-pixel.js");
+/* harmony import */ var react_facebook_pixel__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_facebook_pixel__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _Header_Header__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Header/Header */ "./src/components/Header/Header.js");
+/* harmony import */ var _FooterComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./FooterComponent */ "./src/components/FooterComponent.js");
+/* harmony import */ var _MainContent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./MainContent */ "./src/components/MainContent.js");
+/* harmony import */ var _Modals_AuthModal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Modals/AuthModal */ "./src/components/Modals/AuthModal.js");
+/* harmony import */ var _Pages_PersonalArea_PersonalArea__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Pages/PersonalArea/PersonalArea */ "./src/components/Pages/PersonalArea/PersonalArea.js");
+/* harmony import */ var _Pages_SalesArea__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Pages/SalesArea */ "./src/components/Pages/SalesArea.js");
+/* harmony import */ var _Pages_Legal_Legal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Pages/Legal/Legal */ "./src/components/Pages/Legal/Legal.js");
+/* harmony import */ var _Pages_About_About__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Pages/About/About */ "./src/components/Pages/About/About.js");
+/* harmony import */ var _Pages_Restaurants_Restaurants__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Pages/Restaurants/Restaurants */ "./src/components/Pages/Restaurants/Restaurants.js");
+/* harmony import */ var _Pages_BasketArea__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Pages/BasketArea */ "./src/components/Pages/BasketArea.js");
+/* harmony import */ var _Pages_PaymentArea_PaymentArea__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Pages/PaymentArea/PaymentArea */ "./src/components/Pages/PaymentArea/PaymentArea.js");
+/* harmony import */ var _Pages_StatusArea__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Pages/StatusArea */ "./src/components/Pages/StatusArea.js");
+/* harmony import */ var _Pages_Constructor_Constructor__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./Pages/Constructor/Constructor */ "./src/components/Pages/Constructor/Constructor.js");
+/* harmony import */ var _Pages_MobileAuthArea__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./Pages/MobileAuthArea */ "./src/components/Pages/MobileAuthArea.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./helpers */ "./src/components/helpers.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -248,14 +252,36 @@ __webpack_require__.r(__webpack_exports__);
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    _defineProperty(this, "addToCart", product => {
+      this.setState({
+        cart: Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["addItemToCart"])(product)
+      }, () => {
+        this.priceCart();
+      });
+      react_facebook_pixel__WEBPACK_IMPORTED_MODULE_5___default.a.track("Lead", {
+        type: "micro"
+      });
+    });
+
+    _defineProperty(this, "closeAuth", () => {
+      const authorization = Object.assign({}, this.state.authorization);
+      authorization.authorized = Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["getCookie"])("authToken");
+      authorization.show = false;
+      this.setState({
+        authorization,
+        navigateRequest: ""
+      });
+    });
+
     this.state = {
       categories: [],
-      cart: Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["getCart"])(),
+      cart: Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["getCart"])(),
       cartPrice: 0,
       cartCount: 0,
       authorization: {
         show: false,
-        authorized: Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["getCookie"])("authToken")
+        authorized: Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["getCookie"])("authToken")
       },
       profile: {},
       showMobileAuth: false,
@@ -295,17 +321,17 @@ class App extends React.Component {
       self.onHashChange();
     }
 
-    await Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["getRequest"])("/definitions").then(res => {
+    await Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["getRequest"])("/definitions").then(res => {
       if (res && res.data && res.data.success) {
         state.definitions = res.data.result;
       }
     });
-    await Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["getRequest"])("/products/featured", {}).then(res => {
+    await Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["getRequest"])("/products/featured", {}).then(res => {
       if (res && res.data && res.data.success) {
         state.recommendations = res.data.result.items;
       }
     });
-    await Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["getRequest"])("/product-categories").then(res => {
+    await Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["getRequest"])("/product-categories").then(res => {
       state.categories = [{
         id: 0,
         title: "Хиты",
@@ -340,17 +366,9 @@ class App extends React.Component {
     }, 100);
   }
 
-  addToCart(product) {
-    this.setState({
-      cart: Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["addItemToCart"])(product)
-    }, () => {
-      this.priceCart();
-    });
-  }
-
   removeFromCart(product) {
     this.setState({
-      cart: Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["removeItemFromCart"])(product)
+      cart: Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["removeItemFromCart"])(product)
     }, () => {
       this.priceCart();
     });
@@ -358,16 +376,16 @@ class App extends React.Component {
 
   removeAllItemsFromCart(product) {
     this.setState({
-      cart: Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["removeAllItemsFromCart"])(product)
+      cart: Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["removeAllItemsFromCart"])(product)
     }, () => {
       this.priceCart();
     });
   }
 
   loadCart(items) {
-    Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["loadCart"])(items);
+    Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["loadCart"])(items);
     this.setState({
-      cart: Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["loadCart"])(items)
+      cart: Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["loadCart"])(items)
     }, () => {
       this.priceCart();
     });
@@ -375,20 +393,20 @@ class App extends React.Component {
 
   priceCart() {
     this.setState({
-      cartPrice: Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["getTotalPrice"])(),
-      cartCount: Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["getTotalCount"])()
+      cartPrice: Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["getTotalPrice"])(),
+      cartCount: Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["getTotalCount"])()
     }, () => {
-      Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["setCartPrice"])();
+      Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["setCartPrice"])();
     });
   }
 
   async getUserProfile() {
     const self = this;
-    const token = Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["getCookie"])("authToken");
+    const token = Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["getCookie"])("authToken");
     let profile = {};
 
     if (token) {
-      await Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["getRequest"])("/profile?addresses=true&orders=true&cards=true").then(res => {
+      await Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["getRequest"])("/profile?addresses=true&orders=true&cards=true").then(res => {
         if (res && res.data && res.data.success === true) {
           profile = res.data.result;
         }
@@ -399,7 +417,7 @@ class App extends React.Component {
   }
 
   logout() {
-    Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["deleteCookie"])("authToken");
+    Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["deleteCookie"])("authToken");
     this.setState({
       profile: {}
     }, () => {
@@ -416,19 +434,9 @@ class App extends React.Component {
     });
   }
 
-  closeAuth() {
-    const authorization = Object.assign({}, this.state.authorization);
-    authorization.authorized = Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["getCookie"])("authToken");
-    authorization.show = false;
-    this.setState({
-      authorization,
-      navigateRequest: ""
-    });
-  }
-
   doAuth(data) {
     if (data && !!data.token) {
-      Object(_helpers__WEBPACK_IMPORTED_MODULE_19__["setCookie"])("authToken", data.token, {
+      Object(_helpers__WEBPACK_IMPORTED_MODULE_20__["setCookie"])("authToken", data.token, {
         path: window.location.pathname,
         expires: 2550259188
       });
@@ -514,7 +522,7 @@ class App extends React.Component {
   }
 
   get mobileAuth() {
-    return React.createElement(_Pages_MobileAuthArea__WEBPACK_IMPORTED_MODULE_18__["default"], {
+    return React.createElement(_Pages_MobileAuthArea__WEBPACK_IMPORTED_MODULE_19__["default"], {
       onShowUserProfile: this.showUserProfile.bind(this),
       profile: this.state.profile
     });
@@ -533,16 +541,16 @@ class App extends React.Component {
         backgroundColor: "#fff",
         ...style
       }
-    }, React.createElement(_Modals_AuthModal__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }, React.createElement(_Modals_AuthModal__WEBPACK_IMPORTED_MODULE_9__["default"], {
       modalTitle: "\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F",
       modalText: "\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0442\u0435\u043B\u0435\u0444\u043E\u043D, \u043A\u0443\u0434\u0430 \u043F\u0440\u0438\u0441\u043B\u0430\u0442\u044C \u0421\u041C\u0421 \u0441 \u043A\u043E\u0434\u043E\u043C \u0434\u043B\u044F \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u0438",
       modalDescription: "\u0422\u0443\u0434\u0430 \u0436\u0435 \u0431\u0443\u0434\u0443\u0442 \u043D\u0430\u0447\u0438\u0441\u043B\u0435\u043D\u044B \u043F\u043E\u0431\u043E\u043D\u0443\u0441\u044B",
       requestAuthCodeApi: "/auth/login-or-register",
       confirmAuthCodeApi: "/auth/dual-confirm",
       isOpen: this.state.authorization.show && !this.state.authorization.authorized,
-      onClose: this.closeAuth.bind(this),
+      onClose: this.closeAuth,
       onSuccess: this.doAuth.bind(this)
-    }), React.createElement(_Header_Header__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }), React.createElement(_Header_Header__WEBPACK_IMPORTED_MODULE_6__["default"], {
       categories: this.state.categories,
       cartPrice: this.state.cartPrice,
       profile: this.state.profile,
@@ -556,11 +564,11 @@ class App extends React.Component {
     }))), this.state.showMobileAuth ? this.mobileAuth : "", React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["HashRouter"], null, React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Switch"], null, React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Route"], {
       path: "/",
       exact: true,
-      component: () => React.createElement(_MainContent__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      component: () => React.createElement(_MainContent__WEBPACK_IMPORTED_MODULE_8__["default"], {
         cartPrice: this.state.cartPrice,
         cartCount: this.state.cartCount,
         cart: this.state.cart,
-        addToCart: this.addToCart.bind(this),
+        addToCart: this.addToCart,
         removeFromCart: this.removeFromCart.bind(this),
         recommendations: this.state.recommendations,
         slides: this.state.definitions.layout.frontpage_slider,
@@ -570,7 +578,7 @@ class App extends React.Component {
       })
     }), React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Route"], {
       path: "/cabinet",
-      component: () => React.createElement(_Pages_PersonalArea_PersonalArea__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      component: () => React.createElement(_Pages_PersonalArea_PersonalArea__WEBPACK_IMPORTED_MODULE_10__["default"], {
         profile: this.state.profile,
         showMobileAuth: this.state.showMobileAuth,
         logout: this.logout.bind(this),
@@ -583,28 +591,28 @@ class App extends React.Component {
       })
     }), React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Route"], {
       path: "/sales",
-      component: () => React.createElement(_Pages_SalesArea__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      component: () => React.createElement(_Pages_SalesArea__WEBPACK_IMPORTED_MODULE_11__["default"], {
         showMobileAuth: this.state.showMobileAuth
       })
     }), React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Route"], {
       path: "/legal",
-      component: () => React.createElement(_Pages_Legal_Legal__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      component: () => React.createElement(_Pages_Legal_Legal__WEBPACK_IMPORTED_MODULE_12__["default"], {
         showMobileAuth: this.state.showMobileAuth
       })
     }), React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Route"], {
       path: "/about",
-      component: () => React.createElement(_Pages_About_About__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      component: () => React.createElement(_Pages_About_About__WEBPACK_IMPORTED_MODULE_13__["default"], {
         showMobileAuth: this.state.showMobileAuth
       })
     }), React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Route"], {
       path: "/restaurants",
-      component: () => React.createElement(_Pages_Restaurants_Restaurants__WEBPACK_IMPORTED_MODULE_13__["default"], {
+      component: () => React.createElement(_Pages_Restaurants_Restaurants__WEBPACK_IMPORTED_MODULE_14__["default"], {
         restaurants: this.state.definitions.layout.restaurants,
         showMobileAuth: this.state.showMobileAuth
       })
     }), React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Route"], {
       path: "/basket",
-      component: () => React.createElement(_Pages_BasketArea__WEBPACK_IMPORTED_MODULE_14__["default"], {
+      component: () => React.createElement(_Pages_BasketArea__WEBPACK_IMPORTED_MODULE_15__["default"], {
         pageTitle: "Pobo - \u041A\u043E\u0440\u0437\u0438\u043D\u0430",
         recommendations: this.state.recommendations,
         min_amount_for_delivery: this.state.definitions.orders.min_amount_for_delivery,
@@ -616,7 +624,7 @@ class App extends React.Component {
       })
     }), React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Route"], {
       path: "/payment",
-      component: () => React.createElement(_Pages_PaymentArea_PaymentArea__WEBPACK_IMPORTED_MODULE_15__["default"], {
+      component: () => React.createElement(_Pages_PaymentArea_PaymentArea__WEBPACK_IMPORTED_MODULE_16__["default"], {
         showMobileAuth: this.state.showMobileAuth,
         bonus_accrual_percent: this.state.definitions.orders.bonus_accrual_percent,
         restaurants: this.state.definitions.layout.restaurants,
@@ -633,25 +641,25 @@ class App extends React.Component {
       })
     }), React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Route"], {
       path: "/constructor",
-      component: () => React.createElement(_Pages_Constructor_Constructor__WEBPACK_IMPORTED_MODULE_17__["default"], {
+      component: () => React.createElement(_Pages_Constructor_Constructor__WEBPACK_IMPORTED_MODULE_18__["default"], {
         addToCart: this.addToCart.bind(this),
         showMobileAuth: this.state.showMobileAuth
       })
     }), React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Route"], {
       path: "/status/:id",
-      component: () => React.createElement(_Pages_StatusArea__WEBPACK_IMPORTED_MODULE_16__["default"], {
+      component: () => React.createElement(_Pages_StatusArea__WEBPACK_IMPORTED_MODULE_17__["default"], {
         profile: this.state.profile,
         showMobileAuth: this.state.showMobileAuth,
         loadCart: this.loadCart.bind(this)
       })
     }), React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Route"], {
       path: "/status/",
-      component: () => React.createElement(_Pages_StatusArea__WEBPACK_IMPORTED_MODULE_16__["default"], {
+      component: () => React.createElement(_Pages_StatusArea__WEBPACK_IMPORTED_MODULE_17__["default"], {
         profile: this.state.profile,
         showMobileAuth: this.state.showMobileAuth,
         loadCart: this.loadCart.bind(this)
       })
-    }))), React.createElement(_FooterComponent__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }))), React.createElement(_FooterComponent__WEBPACK_IMPORTED_MODULE_7__["default"], {
       showMobileAuth: this.state.showMobileAuth,
       companyPhone: this.state.definitions.layout.company_phone,
       socialLinks: this.state.definitions.layout.social_links,
@@ -862,7 +870,7 @@ function Checkbox({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* WEBPACK VAR INJECTION */(function(PropTypes) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
@@ -873,6 +881,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MenuComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MenuComponent */ "./src/components/MenuComponent.js");
 /* harmony import */ var _icons_InstagramIcon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./icons/InstagramIcon */ "./src/components/icons/InstagramIcon.js");
 /* harmony import */ var _icons_FacebookIcon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./icons/FacebookIcon */ "./src/components/icons/FacebookIcon.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -881,61 +890,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      companyPhone: this.props.companyPhone,
-      socialLinks: this.props.socialLinks,
-      authorized: this.props.authorized,
-      showMobileAuth: this.props.showMobileAuth
-    };
+
+class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "sendPixel", () => {
+      react_facebook_pixel__WEBPACK_IMPORTED_MODULE_3___default.a.track("Lead", {
+        type: "micro"
+      });
+    });
   }
 
   componentDidMount() {
     const options = {
-      autoConfig: true // debug: true,
-
+      autoConfig: true,
+      debug: true
     };
     react_facebook_pixel__WEBPACK_IMPORTED_MODULE_3___default.a.init("320228355308484", null, options);
-    react_facebook_pixel__WEBPACK_IMPORTED_MODULE_3___default.a.pageView();
   }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.authorized !== this.state.authorized) {
-      this.setState({
-        authorized: nextProps.authorized
-      });
-      return true;
-    }
-
-    if (nextProps.socialLinks !== this.state.socialLinks) {
-      this.setState({
-        socialLinks: nextProps.socialLinks
-      });
-      return true;
-    }
-
-    if (nextProps.companyPhone !== this.state.companyPhone) {
-      this.setState({
-        companyPhone: nextProps.companyPhone
-      });
-      return true;
-    }
-
-    if (nextProps.showMobileAuth !== this.state.showMobileAuth) {
-      this.setState({
-        showMobileAuth: nextProps.showMobileAuth
-      });
-      return true;
-    }
-
-    return false;
-  }
-  /**
-   * Main method for render this component
-   */
-
 
   render() {
     const menuItems = [{
@@ -949,7 +922,7 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       onClick: () => this.props.onNavigateRequest("#/restaurants", true)
     }];
 
-    if (!this.state.showMobileAuth) {
+    if (!this.props.showMobileAuth) {
       menuItems.push({
         link: "#/legal",
         title: "Правовая информация"
@@ -958,7 +931,7 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("footer", {
-        "mobile-page": this.state.showMobileAuth
+        "mobile-page": this.props.showMobileAuth
       })
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "container"
@@ -975,8 +948,9 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "contact-number"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: `tel:${this.state.companyPhone}`
-    }, this.state.companyPhone)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      href: `tel:${this.props.companyPhone}`,
+      onClick: this.sendPixel
+    }, this.props.companyPhone)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "bottom-level"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "left-bar"
@@ -987,16 +961,20 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "social-icons"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: this.state.socialLinks.instagram,
+      href: this.props.socialLinks.instagram,
       className: "social-icons__item",
-      target: "_blank"
+      rel: "noopener noreferrer",
+      target: "_blank",
+      onClick: this.sendPixel
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_InstagramIcon__WEBPACK_IMPORTED_MODULE_5__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: this.state.socialLinks.facebook,
+      href: this.props.socialLinks.facebook,
       className: "social-icons__item",
-      target: "_blank"
+      rel: "noopener noreferrer",
+      target: "_blank",
+      onClick: this.sendPixel
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_FacebookIcon__WEBPACK_IMPORTED_MODULE_6__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "tag"
-    }, "#", this.state.socialLinks.hashtag))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2__["YMInitializer"], {
+    }, "#", this.props.socialLinks.hashtag))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2__["YMInitializer"], {
       accounts: [54294081],
       options: {
         webvisor: true
@@ -1007,7 +985,18 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
 }
 
+Footer.propTypes = {
+  showMobileAuth: PropTypes.bool.isRequired,
+  onNavigateRequest: PropTypes.func.isRequired,
+  companyPhone: PropTypes.string.isRequired,
+  socialLinks: PropTypes.shape({
+    hashtag: PropTypes.string,
+    facebook: PropTypes.string,
+    instagram: PropTypes.string
+  }).isRequired
+};
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")))
 
 /***/ }),
 
@@ -1026,19 +1015,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-yandex-metrika */ "./node_modules/react-yandex-metrika/lib/index.js");
 /* harmony import */ var react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _icons_LogoIcon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../icons/LogoIcon */ "./src/components/icons/LogoIcon.js");
-/* harmony import */ var _MenuComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../MenuComponent */ "./src/components/MenuComponent.js");
-/* harmony import */ var _ButtonComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ButtonComponent */ "./src/components/ButtonComponent.js");
-/* harmony import */ var _icons_mobile_Burger__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../icons/mobile/Burger */ "./src/components/icons/mobile/Burger.js");
-/* harmony import */ var _basket_icon_desctop_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./basket-icon-desctop.svg */ "./src/components/Header/basket-icon-desctop.svg");
-/* harmony import */ var _basket_icon_desctop_svg__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_basket_icon_desctop_svg__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _mobile_basket_icon_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./mobile-basket-icon.svg */ "./src/components/Header/mobile-basket-icon.svg");
-/* harmony import */ var _mobile_basket_icon_svg__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_mobile_basket_icon_svg__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _icons_mobile_Logo__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../icons/mobile/Logo */ "./src/components/icons/mobile/Logo.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../helpers */ "./src/components/helpers.js");
-/* harmony import */ var _icons_BonusIcon__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../icons/BonusIcon */ "./src/components/icons/BonusIcon.js");
-/* harmony import */ var _ContentButton__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../ContentButton */ "./src/components/ContentButton.js");
+/* harmony import */ var react_facebook_pixel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-facebook-pixel */ "./node_modules/react-facebook-pixel/dist/fb-pixel.js");
+/* harmony import */ var react_facebook_pixel__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_facebook_pixel__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _icons_LogoIcon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../icons/LogoIcon */ "./src/components/icons/LogoIcon.js");
+/* harmony import */ var _MenuComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../MenuComponent */ "./src/components/MenuComponent.js");
+/* harmony import */ var _ButtonComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../ButtonComponent */ "./src/components/ButtonComponent.js");
+/* harmony import */ var _icons_mobile_Burger__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../icons/mobile/Burger */ "./src/components/icons/mobile/Burger.js");
+/* harmony import */ var _basket_icon_desctop_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./basket-icon-desctop.svg */ "./src/components/Header/basket-icon-desctop.svg");
+/* harmony import */ var _basket_icon_desctop_svg__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_basket_icon_desctop_svg__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _mobile_basket_icon_svg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./mobile-basket-icon.svg */ "./src/components/Header/mobile-basket-icon.svg");
+/* harmony import */ var _mobile_basket_icon_svg__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_mobile_basket_icon_svg__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _icons_mobile_Logo__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../icons/mobile/Logo */ "./src/components/icons/mobile/Logo.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../helpers */ "./src/components/helpers.js");
+/* harmony import */ var _icons_BonusIcon__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../icons/BonusIcon */ "./src/components/icons/BonusIcon.js");
+/* harmony import */ var _ContentButton__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../ContentButton */ "./src/components/ContentButton.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1071,7 +1063,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       mobile
     }) => {
       const basketIconClass = mobile ? "mobile-basket-icon" : "desctop-basket-icon";
-      const basketIconSrc = mobile ? _mobile_basket_icon_svg__WEBPACK_IMPORTED_MODULE_8___default.a : _basket_icon_desctop_svg__WEBPACK_IMPORTED_MODULE_7___default.a;
+      const basketIconSrc = mobile ? _mobile_basket_icon_svg__WEBPACK_IMPORTED_MODULE_9___default.a : _basket_icon_desctop_svg__WEBPACK_IMPORTED_MODULE_8___default.a;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(basketIconClass, {
           "hide-element": !!this.state.unfinishedOrder === false
@@ -1086,7 +1078,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     });
 
     this.state = {
-      unfinishedOrder: Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["getCookie"])("lastOrder"),
+      unfinishedOrder: Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["getCookie"])("lastOrder"),
       mobileMenu: false,
       profile: this.props.profile,
       category: this.props.category
@@ -1150,21 +1142,27 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   renderProfileButton() {
     if (this.state.profile.phone === undefined) {
       const title = "Войти";
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContentButton__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContentButton__WEBPACK_IMPORTED_MODULE_13__["default"], {
         buttonType: "default",
         buttonTitle: title,
         buttonClass: "profile-button",
-        onClickMethod: this.props.onShowUserProfile
+        type: "button",
+        onClickMethod: () => {
+          react_facebook_pixel__WEBPACK_IMPORTED_MODULE_3___default.a.track("Lead", {
+            type: "micro"
+          });
+          this.props.onShowUserProfile();
+        }
       }, title);
     }
 
     const title = `${this.state.profile.firstname || this.state.profile.phone} ${this.state.profile.bonuses}`;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContentButton__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContentButton__WEBPACK_IMPORTED_MODULE_13__["default"], {
       buttonType: "default",
       buttonTitle: title,
       buttonClass: "profile-button",
       onClickMethod: this.props.onShowUserProfile
-    }, title, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_BonusIcon__WEBPACK_IMPORTED_MODULE_11__["default"], null));
+    }, title, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_BonusIcon__WEBPACK_IMPORTED_MODULE_12__["default"], null));
   }
 
   openCart() {
@@ -1188,9 +1186,9 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       className: "left-bar"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       href: "/"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_LogoIcon__WEBPACK_IMPORTED_MODULE_3__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_LogoIcon__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "right-bar"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuComponent__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuComponent__WEBPACK_IMPORTED_MODULE_5__["default"], {
       menuItems: [{
         link: "#/",
         title: "Меню"
@@ -1210,7 +1208,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       className: "bottom-level"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "left-bar"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuComponent__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuComponent__WEBPACK_IMPORTED_MODULE_5__["default"], {
       menuItems: this.props.categories,
       menuItemClick: this.props.menuItemClick,
       category: this.state.category
@@ -1219,7 +1217,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "price-container",
       id: "cart-price"
-    }, Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["formatCurrency"])(this.props.cartPrice)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ButtonComponent__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }, Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["formatCurrency"])(this.props.cartPrice)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ButtonComponent__WEBPACK_IMPORTED_MODULE_6__["default"], {
       buttonType: "basket",
       buttonTitle: "\u041A\u043E\u0440\u0437\u0438\u043D\u0430",
       onClickMethod: () => {
@@ -1234,7 +1232,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       onClick: () => {
         this.props.setShowMobileMenu();
       }
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_mobile_Burger__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_mobile_Burger__WEBPACK_IMPORTED_MODULE_7__["default"], {
       open: this.props.showMobileAuth,
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()({
         "hide-element": this.state.mobileMenu
@@ -1243,7 +1241,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("boul-button__container", {
         "hide-element": !this.state.mobileMenu
       })
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuComponent__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuComponent__WEBPACK_IMPORTED_MODULE_5__["default"], {
       menuItems: this.props.categories,
       menuItemClick: this.props.menuItemClick,
       category: this.state.category
@@ -1252,18 +1250,18 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         "hide-element": this.state.mobileMenu
       }),
       href: "/"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_mobile_Logo__WEBPACK_IMPORTED_MODULE_9__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_mobile_Logo__WEBPACK_IMPORTED_MODULE_10__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("right-bar", {
         "hide-element": this.state.mobileMenu
       })
     }, this.renderBasketIcon({
       mobile: true
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ButtonComponent__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ButtonComponent__WEBPACK_IMPORTED_MODULE_6__["default"], {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()({
         "hide-element": this.state.mobileMenu
       }),
       buttonType: "basket",
-      buttonTitle: Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["formatCurrency"])(this.props.cartPrice),
+      buttonTitle: Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["formatCurrency"])(this.props.cartPrice),
       buttonClass: classnames__WEBPACK_IMPORTED_MODULE_1___default()("mobile-basket-button", {
         "hide-element": this.state.mobileMenu
       }),
@@ -1390,9 +1388,12 @@ class MainContent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _icons_mobile_BasketMobile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icons/mobile/BasketMobile */ "./src/components/icons/mobile/BasketMobile.js");
-/* harmony import */ var _MarketSectionComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MarketSectionComponent */ "./src/components/MarketSectionComponent.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers */ "./src/components/helpers.js");
+/* harmony import */ var react_facebook_pixel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-facebook-pixel */ "./node_modules/react-facebook-pixel/dist/fb-pixel.js");
+/* harmony import */ var react_facebook_pixel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_facebook_pixel__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _icons_mobile_BasketMobile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icons/mobile/BasketMobile */ "./src/components/icons/mobile/BasketMobile.js");
+/* harmony import */ var _MarketSectionComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MarketSectionComponent */ "./src/components/MarketSectionComponent.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers */ "./src/components/helpers.js");
+
 
 
 
@@ -1403,7 +1404,7 @@ class Market extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     super(props);
     this.state = {
       cartPrice: this.props.cartPrice,
-      cartCount: Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["getTotalCount"])(),
+      cartCount: Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["getTotalCount"])(),
       categories: this.props.categories || [],
       categoriesData: [],
       cart: this.props.cart,
@@ -1443,12 +1444,16 @@ class Market extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         cart: nextProps.cart
       });
       return true;
-    } else if (nextState.categoriesData && nextState.categoriesData.length !== this.state.categoriesData.length) {
+    }
+
+    if (nextState.categoriesData && nextState.categoriesData.length !== this.state.categoriesData.length) {
       this.setState({
         categoriesData: nextState.categoriesData
       });
       return true;
-    } else if (nextState.cartCount !== this.state.cartCount) {
+    }
+
+    if (nextState.cartCount !== this.state.cartCount) {
       this.setState({
         cartCount: nextState.cartCount
       });
@@ -1473,7 +1478,7 @@ class Market extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       for (let i = 1; i < this.state.categories.length; i++) {
         if (this.state.categories[i].published === 1) {
           let productsProcess = [];
-          await Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["getRequest"])(`/products/category?category_id=${this.state.categories[i].id}&page=1`).then(res => {
+          await Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["getRequest"])(`/products/category?category_id=${this.state.categories[i].id}&page=1`).then(res => {
             productsProcess = res.data.result.items.slice();
           });
           categoriesProcess.push({
@@ -1500,27 +1505,30 @@ class Market extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       onClick: () => {
         this.openCart();
       }
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_mobile_BasketMobile__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_mobile_BasketMobile__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "basket__counter"
     }, this.state.cartCount)) : "", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "market-sections"
-    }, this.state.categoriesData.map((item, i) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MarketSectionComponent__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }, this.state.categoriesData.map((item, i) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MarketSectionComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {
       key: i,
       category: this.state.categoriesData[i],
       cart: this.state.cart,
       addToCart: product => {
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["addItemToCart"])(product);
-        self.setState({
-          cartCount: Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["getTotalCount"])()
+        react_facebook_pixel__WEBPACK_IMPORTED_MODULE_1___default.a.track("Lead", {
+          type: "micro"
         });
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["setCartPrice"])();
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["addItemToCart"])(product);
+        self.setState({
+          cartCount: Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["getTotalCount"])()
+        });
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["setCartPrice"])();
       },
       removeFromCart: product => {
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["removeItemFromCart"])(product);
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["removeItemFromCart"])(product);
         self.setState({
-          cartCount: Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["getTotalCount"])()
+          cartCount: Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["getTotalCount"])()
         });
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["setCartPrice"])();
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["setCartPrice"])();
       }
     }))));
   }
@@ -1943,7 +1951,7 @@ class Menu extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   componentDidUpdate() {
-    if (this.props.category) {//TODO fix scroll
+    if (this.props.category) {// TODO fix scroll
     }
   }
 
@@ -1970,9 +1978,9 @@ class Menu extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
   renderLink(item, i) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      key: 'link' + i,
+      key: "link" + i,
       href: item.link,
-      className: 'menu__item'
+      className: "menu__item"
     }, item.title);
   }
   /**
@@ -1981,15 +1989,11 @@ class Menu extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
 
   render() {
-    let menuItems = [];
-    menuItems.push(this.state.menuItems.map((item, i) => {
-      return item.link ? this.renderLink(item, i) : this.renderMenuItem(item, i, this.state.menuItems[i].active);
-    }));
+    const menuItems = [];
+    menuItems.push(this.state.menuItems.map((item, i) => item.link ? this.renderLink(item, i) : this.renderMenuItem(item, i, this.state.menuItems[i].active)));
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
       className: "menu"
-    }, menuItems.map(item => {
-      return item;
-    }));
+    }, menuItems.map(item => item));
   }
 
 }
@@ -2007,19 +2011,24 @@ class Menu extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return AuthModal; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* WEBPACK VAR INJECTION */(function(PropTypes) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _assets_scss_main_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/scss/main.scss */ "./src/assets/scss/main.scss");
 /* harmony import */ var _assets_scss_main_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_main_scss__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_modal__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _ButtonComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ButtonComponent */ "./src/components/ButtonComponent.js");
-/* harmony import */ var _icons_ModalHide__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../icons/ModalHide */ "./src/components/icons/ModalHide.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../helpers */ "./src/components/helpers.js");
-/* harmony import */ var react_input_mask__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-input-mask */ "./node_modules/react-input-mask/index.js");
-/* harmony import */ var react_input_mask__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_input_mask__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _Pages_ValidationResult__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Pages/ValidationResult */ "./src/components/Pages/ValidationResult.js");
+/* harmony import */ var react_input_mask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-input-mask */ "./node_modules/react-input-mask/index.js");
+/* harmony import */ var react_input_mask__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_input_mask__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_facebook_pixel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-facebook-pixel */ "./node_modules/react-facebook-pixel/dist/fb-pixel.js");
+/* harmony import */ var react_facebook_pixel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_facebook_pixel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _ButtonComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ButtonComponent */ "./src/components/ButtonComponent.js");
+/* harmony import */ var _icons_ModalHide__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../icons/ModalHide */ "./src/components/icons/ModalHide.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../helpers */ "./src/components/helpers.js");
+/* harmony import */ var _Pages_ValidationResult__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Pages/ValidationResult */ "./src/components/Pages/ValidationResult.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
 
 
 
@@ -2029,25 +2038,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class AuthModal extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
-  /**
-   * @constructor
-   * Method for initialising data
-   */
   constructor(props) {
     super(props);
+
+    _defineProperty(this, "updateCode", e => {
+      this.setState({
+        code: e.target.value
+      });
+    });
+
     this.state = {
-      requestAuthCodeApi: '',
-      confirmAuthCodeApi: '',
       phoneNumber: this.props.phoneNumber,
       authStep: 1,
       timeout: 59,
-      code: '',
-      isOpen: this.props.isOpen,
+      code: "",
       profile: {},
-      modalTitle: this.props.modalTitle,
       modalText: this.props.modalText,
       modalDescription: this.props.modalDescription,
-      modalError: ''
+      modalError: ""
     };
   }
 
@@ -2056,85 +2064,78 @@ class AuthModal extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.isOpen !== this.state.isOpen) {
-      this.setState({
-        isOpen: nextProps.isOpen
-      }, () => {
-        this.showAuthStep(1);
-      });
+    if (nextProps.isOpen !== this.props.isOpen) {
+      this.showAuthStep(1);
       return true;
-    } else if (nextProps.requestAuthCodeApi !== this.state.requestAuthCodeApi) {
-      this.setState({
-        requestAuthCodeApi: nextProps.requestAuthCodeApi
-      });
-      return true;
-    } else if (nextProps.confirmAuthCodeApi !== this.state.confirmAuthCodeApi) {
-      this.setState({
-        confirmAuthCodeApi: nextProps.confirmAuthCodeApi
-      });
-      return true;
-    } else if (nextProps.phoneNumber && nextProps.phoneNumber !== this.props.phoneNumber) {
+    }
+
+    if (nextProps.phoneNumber && nextProps.phoneNumber !== this.props.phoneNumber) {
       this.setState({
         phoneNumber: nextProps.phoneNumber
       });
       return true;
-    } else if (nextProps.modalTitle !== this.state.modalTitle) {
-      this.setState({
-        modalTitle: nextProps.modalTitle
-      });
-      return true;
-    } else if (nextProps.modalText !== this.state.modalText) {
+    }
+
+    if (nextProps.modalText !== this.state.modalText) {
       this.setState({
         modalText: nextProps.modalText
       });
       return true;
-    } else if (nextState.phoneNumber !== this.state.phoneNumber) {
+    }
+
+    if (nextState.phoneNumber !== this.state.phoneNumber) {
       // ISSUE: blocks editting of phoneNumber
       this.setState({
         phoneNumber: nextState.phoneNumber
       });
       return true;
-    } else if (nextState.modalTitle !== this.state.modalTitle) {
-      this.setState({
-        modalTitle: nextState.modalTitle
-      });
-      return true;
-    } else if (nextState.modalText !== this.state.modalText) {
+    }
+
+    if (nextState.modalText !== this.state.modalText) {
       this.setState({
         modalText: nextState.modalText,
         ...nextState
       });
       return true;
-    } else if (nextState.modalDescription !== this.state.modalDescription) {
+    }
+
+    if (nextState.modalDescription !== this.state.modalDescription) {
       this.setState({
         modalDescription: nextState.modalDescription,
         ...nextState
       });
       return true;
-    } else if (nextState.modalError !== this.state.modalError) {
+    }
+
+    if (nextState.modalError !== this.state.modalError) {
       this.setState({
         modalError: nextState.modalError,
         ...nextState
       });
       return true;
-    } else if (nextState.authStep !== this.state.authStep) {
+    }
+
+    if (nextState.authStep !== this.state.authStep) {
       this.setState({
         authStep: nextState.authStep,
         ...nextState
       });
       return true;
-    } else if (nextState.code !== this.state.code) {
-      this.setState({
-        code: nextState.code
-      });
+    }
+
+    if (nextState.code !== this.state.code) {
       return true;
-    } else if (nextState.timeout !== this.state.timeout) {
+    }
+
+    if (nextState.timeout !== this.state.timeout) {
       this.setState({
         timeout: nextState.timeout,
         ...nextState
       });
       return true;
-    } else if (nextState.profile.phone !== this.state.profile.phone) {
+    }
+
+    if (nextState.profile.phone !== this.state.profile.phone) {
       this.setState({
         profile: nextState.profile
       });
@@ -2144,21 +2145,57 @@ class AuthModal extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     return false;
   }
 
-  formSubmit(event) {
-    let formData = '';
-    event.preventDefault();
-    formData = new FormData(event.target);
-    event.target.reset();
+  confirmAuthCode(code) {
+    const self = this;
+    Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["postRequest"])(this.props.confirmAuthCodeApi, {
+      phone: this.state.phoneNumber,
+      code
+    }).then(res => {
+      if (res && res.data && res.data.success === true) {
+        if (typeof this.props.onSuccess === "function") {
+          this.props.onSuccess(res.data);
+        }
 
-    switch (this.state.authStep) {
-      case 1:
-        this.requestAuthCode(formData.get('phoneNumber'));
-        break;
+        self.props.onClose();
+        react_facebook_pixel__WEBPACK_IMPORTED_MODULE_4___default.a.track("Lead", {
+          type: "macro"
+        });
+      } else {
+        self.showAuthError(res.data);
+      }
+    });
+  }
 
-      case 2:
-        this.confirmAuthCode(formData.get('smsCode'));
-        break;
+  requestAuthCode(phoneNumber) {
+    const self = this;
+
+    if (!/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(phoneNumber)) {
+      this.setState({
+        modalError: "Неверный номер телефона"
+      });
+      document.getElementById("phone-number-input").focus();
+      return;
     }
+
+    this.setState({
+      phoneNumber,
+      modalError: ""
+    });
+    Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["postRequest"])(this.props.requestAuthCodeApi, {
+      phone: this.state.phoneNumber
+    }).then(res => {
+      if (res && res.data && res.data.success === true) {
+        self.showAuthStep(2);
+      } else {
+        self.showAuthError(res.data);
+      }
+    });
+  }
+
+  updatePhone(value) {
+    this.setState({
+      phoneNumber: value
+    });
   }
 
   showAuthStep(value, props = {}) {
@@ -2171,14 +2208,14 @@ class AuthModal extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         authStep: 2,
         modalText: `Мы отправили СМС с кодом на номер ${this.state.phoneNumber}`,
         modalDescription: `Получить код ещё раз можно будет через ${this.state.timeout} секунд`,
-        modalError: '',
+        modalError: "",
         timeout: 59
       }, () => {
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["focusInputById"])('sms-code-input');
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["focusInputById"])("sms-code-input");
         this.timer = setInterval(() => {
-          let timeout = this.state.timeout - 1;
+          const timeout = this.state.timeout - 1;
           this.setState({
-            timeout: timeout,
+            timeout,
             modalDescription: `Получить код ещё раз можно будет через ${timeout} секунд`
           });
 
@@ -2192,81 +2229,39 @@ class AuthModal extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     } else {
       this.setState({
         authStep: 1,
-        phoneNumber: '',
+        phoneNumber: "",
         modalText: this.props.modalText,
         modalDescription: this.props.modalDescription,
-        modalError: '',
+        modalError: "",
         ...props
       }, () => {
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["focusInputById"])('phone-number-input');
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["focusInputById"])("phone-number-input");
       });
     }
   }
 
-  updatePhone(value) {
-    this.setState({
-      phoneNumber: value
-    });
-  }
+  formSubmit(event) {
+    let formData = "";
+    event.preventDefault();
+    formData = new FormData(event.target);
+    event.target.reset();
 
-  updateCode(value) {
-    this.setState({
-      code: value
-    });
-  }
+    switch (this.state.authStep) {
+      case 1:
+        this.requestAuthCode(formData.get("phoneNumber"));
+        break;
 
-  requestAuthCode(phoneNumber) {
-    let self = this;
+      case 2:
+        this.confirmAuthCode(formData.get("smsCode"));
+        break;
 
-    if (!/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(phoneNumber)) {
-      this.setState({
-        modalError: 'Неверный номер телефона'
-      });
-      document.getElementById('phone-number-input').focus();
-      return;
-    }
-
-    this.setState({
-      phoneNumber: phoneNumber,
-      modalError: ''
-    });
-    Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["postRequest"])(this.props.requestAuthCodeApi, {
-      'phone': this.state.phoneNumber
-    }).then(res => {
-      if (res && res.data && res.data.success === true) {
-        self.showAuthStep(2);
-      } else {
-        self.showAuthError(res.data);
-      }
-    });
-  }
-
-  confirmAuthCode(code) {
-    let self = this;
-    Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["postRequest"])(this.props.confirmAuthCodeApi, {
-      'phone': this.state.phoneNumber,
-      'code': code
-    }).then(res => {
-      if (res && res.data && res.data.success === true) {
-        if (typeof this.props.onSuccess === 'function') {
-          this.props.onSuccess(res.data);
-        }
-
-        self.modalClose();
-      } else {
-        self.showAuthError(res.data);
-      }
-    });
-  }
-
-  modalClose() {
-    if (typeof this.props.onClose === 'function') {
-      this.props.onClose();
+      default:
+        break;
     }
   }
 
   showAuthError(response) {
-    let errorMessage = '';
+    let errorMessage = "";
 
     if (response.errors && response.errors.length) {
       response.errors.map(item => {
@@ -2276,8 +2271,8 @@ class AuthModal extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       errorMessage = response.message;
     }
 
-    if (errorMessage === '') {
-      errorMessage = 'В настоящее время сервис недоступен. Попробуйте обновить страницу и отправить запрос заново.';
+    if (errorMessage === "") {
+      errorMessage = "В настоящее время сервис недоступен. Попробуйте обновить страницу и отправить запрос заново.";
     }
 
     this.setState({
@@ -2290,7 +2285,9 @@ class AuthModal extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-title__label"
       }, this.state.modalText);
-    } else if (this.state.authStep === 2 && !this.state.modalError) {
+    }
+
+    if (this.state.authStep === 2 && !this.state.modalError) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-title__label"
       }, "\u041C\u044B \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u043B\u0438 \u0421\u041C\u0421 \u0441 \u043A\u043E\u0434\u043E\u043C \u043D\u0430 \u043D\u043E\u043C\u0435\u0440 ", this.state.phoneNumber, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2299,11 +2296,11 @@ class AuthModal extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
           this.showAuthStep(1);
         }
       }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C"));
-    } else {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-title__label"
-      }, this.state.modalError || this.state.modalText);
     }
+
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "modal-title__label"
+    }, this.state.modalError || this.state.modalText);
   }
 
   renderModalDescription() {
@@ -2311,39 +2308,41 @@ class AuthModal extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "modal-description"
       }, this.state.modalDescription);
-    } else {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "modal-description"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-link",
-        onClick: () => {
-          this.requestAuthCode(this.state.phoneNumber);
-        }
-      }, "\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u043F\u043E\u0432\u0442\u043E\u0440\u043D\u043E"));
     }
+
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "modal-description"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "modal-link",
+      onClick: () => {
+        this.requestAuthCode(this.state.phoneNumber);
+      }
+    }, "\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u043F\u043E\u0432\u0442\u043E\u0440\u043D\u043E"));
   }
 
   renderModalValidationResult() {
-    return this.state.authStep === 1 && this.state.modalError ? this.state.modalError : '';
+    return this.state.authStep === 1 && this.state.modalError ? this.state.modalError : "";
   }
 
   renderForm() {
-    let modalText = this.renderModalText();
-    let modalDescription = this.renderModalDescription();
-    let modalValidationResult = this.renderModalValidationResult();
+    const modalText = this.renderModalText();
+    const modalDescription = this.renderModalDescription();
 
     if (this.state.authStep === 1) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-form-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-hide",
-        onClick: this.modalClose.bind(this)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_ModalHide__WEBPACK_IMPORTED_MODULE_4__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        onClick: this.props.onClose
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_ModalHide__WEBPACK_IMPORTED_MODULE_6__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "modal-title"
-      }, this.state.modalTitle), modalText, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, this.props.modalTitle), modalText, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "auth-form-modal",
         onSubmit: event => {
           this.formSubmit(event);
+          react_facebook_pixel__WEBPACK_IMPORTED_MODULE_4___default.a.track("Lead", {
+            type: "macro"
+          });
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-top-level"
@@ -2351,7 +2350,7 @@ class AuthModal extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         className: "modal-bottom-level"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-input"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_input_mask__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_input_mask__WEBPACK_IMPORTED_MODULE_3___default.a, {
         id: "phone-number-input",
         className: "modal-input__input",
         name: "phoneNumber",
@@ -2360,67 +2359,79 @@ class AuthModal extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         onChange: e => {
           this.updatePhone(e.target.value);
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Pages_ValidationResult__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        error: this.state.authStep === 1 && this.state.modalError ? this.state.modalError : ''
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ButtonComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        buttonType: "default",
-        buttonTitle: "\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C",
-        buttonClass: "modal-button",
-        onClickSubmit: true
-      })), modalDescription));
-    } else {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-form-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-hide",
-        onClick: this.modalClose.bind(this)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_ModalHide__WEBPACK_IMPORTED_MODULE_4__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "modal-title"
-      }, this.state.modalTitle), modalText, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "auth-form-modal",
-        onSubmit: event => {
-          this.formSubmit(event);
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-top-level"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-bottom-level"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-input"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_input_mask__WEBPACK_IMPORTED_MODULE_6___default.a, {
-        id: "sms-code-input",
-        className: "modal-input__input modal-input__input--sms-code",
-        name: "smsCode",
-        autoComplete: "off",
-        mask: "9999",
-        value: this.state.code,
-        onChange: e => {
-          this.updateCode(e.target.value);
-        }
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ButtonComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Pages_ValidationResult__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        error: this.state.authStep === 1 && this.state.modalError ? this.state.modalError : ""
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ButtonComponent__WEBPACK_IMPORTED_MODULE_5__["default"], {
         buttonType: "default",
         buttonTitle: "\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C",
         buttonClass: "modal-button",
         onClickSubmit: true
       })), modalDescription));
     }
-  }
-  /**
-   * Main method for render this component
-   */
 
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "modal-form-container"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "modal-hide",
+      onClick: this.props.onClose
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_ModalHide__WEBPACK_IMPORTED_MODULE_6__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      className: "modal-title"
+    }, this.props.modalTitle), modalText, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      className: "auth-form-modal",
+      onSubmit: event => {
+        this.formSubmit(event);
+      }
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "modal-top-level"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "modal-bottom-level"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "modal-input"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_input_mask__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      id: "sms-code-input",
+      className: "modal-input__input modal-input__input--sms-code",
+      name: "smsCode",
+      autoComplete: "off",
+      mask: "9999",
+      value: this.state.code,
+      onChange: this.updateCode
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ButtonComponent__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      buttonType: "default",
+      buttonTitle: "\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C",
+      buttonClass: "modal-button",
+      onClickSubmit: true
+    })), modalDescription));
+  }
 
   render() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      isOpen: this.state.isOpen,
-      onRequestClose: this.modalClose.bind(this),
+      isOpen: this.props.isOpen,
+      onRequestClose: this.props.onClose,
       contentLabel: "Example Modal",
       className: "auth-modal-container",
-      overlayClassName: "auth-modal-container__overlay"
+      overlayClassName: "auth-modal-container__overlay",
+      appElement: document.getElementById("app")
     }, this.renderForm());
   }
 
 }
+
+AuthModal.propTypes = {
+  phoneNumber: PropTypes.string,
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onSuccess: PropTypes.func.isRequired,
+  modalTitle: PropTypes.string.isRequired,
+  modalText: PropTypes.string.isRequired,
+  modalDescription: PropTypes.string.isRequired,
+  requestAuthCodeApi: PropTypes.string.isRequired,
+  confirmAuthCodeApi: PropTypes.string.isRequired
+};
+AuthModal.defaultProps = {
+  phoneNumber: undefined
+};
+/* harmony default export */ __webpack_exports__["default"] = (AuthModal);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")))
 
 /***/ }),
 
@@ -3148,12 +3159,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_scroll__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_scroll__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/lib/Helmet.js");
 /* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_helmet__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers */ "./src/components/helpers.js");
-/* harmony import */ var _icons_AddItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../icons/AddItem */ "./src/components/icons/AddItem.js");
-/* harmony import */ var _icons_RemoveItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../icons/RemoveItem */ "./src/components/icons/RemoveItem.js");
-/* harmony import */ var _icons_RemoveItemButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../icons/RemoveItemButton */ "./src/components/icons/RemoveItemButton.js");
-/* harmony import */ var _icons_EmptyBasketIcon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../icons/EmptyBasketIcon */ "./src/components/icons/EmptyBasketIcon.js");
-/* harmony import */ var _MarketSectionComponent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../MarketSectionComponent */ "./src/components/MarketSectionComponent.js");
+/* harmony import */ var react_facebook_pixel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-facebook-pixel */ "./node_modules/react-facebook-pixel/dist/fb-pixel.js");
+/* harmony import */ var react_facebook_pixel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_facebook_pixel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../helpers */ "./src/components/helpers.js");
+/* harmony import */ var _icons_AddItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../icons/AddItem */ "./src/components/icons/AddItem.js");
+/* harmony import */ var _icons_RemoveItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../icons/RemoveItem */ "./src/components/icons/RemoveItem.js");
+/* harmony import */ var _icons_RemoveItemButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../icons/RemoveItemButton */ "./src/components/icons/RemoveItemButton.js");
+/* harmony import */ var _icons_EmptyBasketIcon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../icons/EmptyBasketIcon */ "./src/components/icons/EmptyBasketIcon.js");
+/* harmony import */ var _MarketSectionComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../MarketSectionComponent */ "./src/components/MarketSectionComponent.js");
+
 
 
 
@@ -3177,8 +3191,8 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
   constructor(props) {
     super(props);
     this.state = {
-      cart: Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["getCart"])(),
-      cartPrice: Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["getTotalPrice"])(),
+      cart: Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["getCart"])(),
+      cartPrice: Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["getTotalPrice"])(),
       min_amount_for_delivery: this.props.min_amount_for_delivery,
       recommendations: this.props.recommendations
     };
@@ -3186,7 +3200,7 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
 
   priceCart() {
     this.setState({
-      cartPrice: Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["getTotalPrice"])()
+      cartPrice: Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["getTotalPrice"])()
     });
   }
 
@@ -3195,7 +3209,7 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
   }
 
   redirectToPayment(type) {
-    Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["setDeliveryMethod"])(type);
+    Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["setDeliveryMethod"])(type);
     this.props.onNavigateRequest("#/payment");
   }
 
@@ -3211,9 +3225,9 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
       className: "basket-pos__price"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       "data-price": item.itemData.price
-    }, Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["formatCurrency"])(item.itemData.price || item.itemData.amount))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["formatCurrency"])(item.itemData.price || item.itemData.amount))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket-pos__consist"
-    }, item.itemData.description ? item.itemData.description : Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["getBoulTitle"])(item.itemData.groups)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, item.itemData.description ? item.itemData.description : Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["getBoulTitle"])(item.itemData.groups)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket-pos__specifications"
     }, item.itemData.specifications && item.itemData.specifications.map((prop, j) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: j,
@@ -3225,21 +3239,21 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
       onClick: () => {
         this.props.removeAllItemsFromCart(item.itemData);
       }
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_RemoveItemButton__WEBPACK_IMPORTED_MODULE_7__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_RemoveItemButton__WEBPACK_IMPORTED_MODULE_8__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket-pos__amount amount-item"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       onClick: () => {
         this.props.removeFromCart(item.itemData);
       },
       className: "amount-item__dec"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_RemoveItem__WEBPACK_IMPORTED_MODULE_6__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_RemoveItem__WEBPACK_IMPORTED_MODULE_7__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "amount-item__field"
     }, item.numberItems), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       onClick: () => {
         this.props.addToCart(item.itemData);
       },
       className: "amount-item__inc"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_AddItem__WEBPACK_IMPORTED_MODULE_5__["default"], null))))));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_AddItem__WEBPACK_IMPORTED_MODULE_6__["default"], null))))));
   }
 
   get basket() {
@@ -3251,7 +3265,7 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
       className: "basket-total__cost"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "js-total-cost"
-    }, Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["formatCurrency"])(this.state.cartPrice))));
+    }, Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["formatCurrency"])(this.state.cartPrice))));
   }
 
   get buttons() {
@@ -3260,14 +3274,22 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "basket-total__btn_dark btn-transparent",
       onClick: () => {
+        react_facebook_pixel__WEBPACK_IMPORTED_MODULE_4___default.a.track("Lead", {
+          type: "micro"
+        });
         this.redirectToPayment(1);
-      }
+      },
+      type: "button"
     }, "\u0421\u0430\u043C\u043E\u0432\u044B\u0432\u043E\u0437"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "basket-total__btn_light btn-primary",
       disabled: !this.isDeliveryAvailable,
       onClick: () => {
+        react_facebook_pixel__WEBPACK_IMPORTED_MODULE_4___default.a.track("Lead", {
+          type: "micro"
+        });
         this.redirectToPayment(2);
-      }
+      },
+      type: "button"
     }, "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430"));
   }
 
@@ -3282,7 +3304,7 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
       className: "basket-empty"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket-empty__icon"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_EmptyBasketIcon__WEBPACK_IMPORTED_MODULE_8__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_EmptyBasketIcon__WEBPACK_IMPORTED_MODULE_9__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket-empty__text"
     }, "\u0412 \u043A\u043E\u0440\u0437\u0438\u043D\u0435 \u043F\u043E\u043A\u0430 \u0435\u0449\u0435 \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435\u0442"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket-empty__button"
@@ -3333,13 +3355,13 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
       fill: "#FD7065"
     }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "basket-warning__text"
-    }, "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F \u0441\u0443\u043C\u043C\u0430 \u0437\u0430\u043A\u0430\u0437\u0430 ", Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["formatCurrency"])(this.state.min_amount_for_delivery), ". \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0441\u0430\u043C\u043E\u0432\u044B\u0432\u043E\u0437 \u0438\u043B\u0438 \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C \u043A\u043E\u0440\u0437\u0438\u043D\u0443.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F \u0441\u0443\u043C\u043C\u0430 \u0437\u0430\u043A\u0430\u0437\u0430 ", Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["formatCurrency"])(this.state.min_amount_for_delivery), ". \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0441\u0430\u043C\u043E\u0432\u044B\u0432\u043E\u0437 \u0438\u043B\u0438 \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C \u043A\u043E\u0440\u0437\u0438\u043D\u0443.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket"
     }, this.items)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "container"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MarketSectionComponent__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MarketSectionComponent__WEBPACK_IMPORTED_MODULE_10__["default"], {
       category: {
         id: 0,
         title: "Рекомендуем",
@@ -4282,29 +4304,31 @@ Legal.propTypes = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* WEBPACK VAR INJECTION */(function(PropTypes) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _ButtonComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ButtonComponent */ "./src/components/ButtonComponent.js");
-/* harmony import */ var _icons_BonusIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../icons/BonusIcon */ "./src/components/icons/BonusIcon.js");
+/* harmony import */ var react_facebook_pixel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-facebook-pixel */ "./node_modules/react-facebook-pixel/dist/fb-pixel.js");
+/* harmony import */ var react_facebook_pixel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_facebook_pixel__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ButtonComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ButtonComponent */ "./src/components/ButtonComponent.js");
+/* harmony import */ var _icons_BonusIcon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../icons/BonusIcon */ "./src/components/icons/BonusIcon.js");
+
 
 
 
 
 class MobileAuthArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      profile: this.props.profile
-    };
-  }
-
   get enterButton() {
-    let title = 'Войдите в свой аккаунт';
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ButtonComponent__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    const title = "Войдите в свой аккаунт";
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ButtonComponent__WEBPACK_IMPORTED_MODULE_2__["default"], {
       buttonType: "default",
       buttonTitle: title,
       buttonClass: "btn mobile-auth-btn",
-      onClickMethod: this.props.onShowUserProfile
+      type: "button",
+      onClickMethod: () => {
+        react_facebook_pixel__WEBPACK_IMPORTED_MODULE_1___default.a.track("Lead", {
+          type: "micro"
+        });
+        this.props.onShowUserProfile();
+      }
     }, title);
   }
 
@@ -4317,17 +4341,16 @@ class MobileAuthArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
       className: "inf-block"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "mobile-inf"
-    }, this.state.profile.firstname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, this.props.profile.firstname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "mobile-inf"
-    }, "+", this.state.profile.phone), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "+", this.props.profile.phone), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "mobile-inf mobile-bonuses"
     }, "\u041F\u043E\u0431\u043E-\u0431\u043E\u043D\u0443\u0441\u043E\u0432", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "mobile-inf mobile-bonuses-count"
-    }, this.state.profile.bonuses), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_BonusIcon__WEBPACK_IMPORTED_MODULE_2__["default"], null))));
+    }, this.props.profile.bonuses), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_BonusIcon__WEBPACK_IMPORTED_MODULE_3__["default"], null))));
   }
 
   render() {
-    let title = 'Войти';
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
       className: "page mobile-page"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4337,7 +4360,16 @@ class MobileAuthArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
 
 }
 
+MobileAuthArea.propTypes = {
+  onShowUserProfile: PropTypes.func.isRequired,
+  profile: PropTypes.shape({
+    phone: PropTypes.string,
+    firstname: PropTypes.string,
+    bonuses: PropTypes.number
+  }).isRequired
+};
 /* harmony default export */ __webpack_exports__["default"] = (MobileAuthArea);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")))
 
 /***/ }),
 
@@ -8286,4 +8318,4 @@ ReactDOM.render(React.createElement(_components_AppComponent__WEBPACK_IMPORTED_M
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.82444a83866191cc30c2.js.map
+//# sourceMappingURL=main.5b2a8aee6e1b684f1da2.js.map

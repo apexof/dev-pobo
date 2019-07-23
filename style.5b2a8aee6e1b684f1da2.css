@@ -694,7 +694,11 @@ body {
     right: 15px; }
   .item-img-container__img {
     max-width: 100%;
-    min-width: 100%; }
+    min-width: 100%;
+    min-height: 136px;
+    height: auto;
+    width: 100%;
+    background-color: #fff; }
 
 .item-title {
   display: flex;
@@ -4387,4 +4391,4 @@ ul.payment__accept {
     right: unset; } }
 
 
-/*# sourceMappingURL=style.82444a83866191cc30c2.css.map*/
+/*# sourceMappingURL=style.5b2a8aee6e1b684f1da2.css.map*/
