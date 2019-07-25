@@ -137,7 +137,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
 /******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
@@ -8329,4 +8329,4 @@ ReactDOM.render(React.createElement(_components_AppComponent__WEBPACK_IMPORTED_M
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.b3d908c362d52e285d50.js.map
+//# sourceMappingURL=main.9ca3b72856e9a79f763c.js.map
