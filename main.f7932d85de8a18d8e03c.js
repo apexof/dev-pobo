@@ -899,8 +899,8 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
 
   componentDidMount() {
     const options = {
-      autoConfig: true,
-      debug: true
+      autoConfig: true // debug: true,
+
     };
     react_facebook_pixel__WEBPACK_IMPORTED_MODULE_3___default.a.init("320228355308484", null, options); // ReactPixel.init("2375335412562307", null, options);
   }
@@ -969,7 +969,7 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
       onClick: this.sendPixel
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_FacebookIcon__WEBPACK_IMPORTED_MODULE_6__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "tag"
-    }, "#", this.props.socialLinks.hashtag))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2__["YMInitializer"], {
+    }, "#", this.props.socialLinks.hashtag))))), window.location.hostname !== "localhost" && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2__["YMInitializer"], {
       accounts: [54294081],
       options: {
         webvisor: true
@@ -4736,6 +4736,7 @@ class ChooseStock extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
         type: "bonus"
       });
       this.props.setDuePromo(false);
+      this.props.setPromocode(null);
     });
   }
 
@@ -4744,7 +4745,8 @@ class ChooseStock extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
       setDuePromo,
       setDueBonus,
       bonuses,
-      paramsForOrder
+      paramsForOrder,
+      setPromocode
     } = this.props;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "spend-points"
@@ -4756,7 +4758,8 @@ class ChooseStock extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
       onClick: this.choosePromo
     }, "\u0423 \u043C\u0435\u043D\u044F \u0435\u0441\u0442\u044C \u043F\u0440\u043E\u043C\u043E\u043A\u043E\u0434")), this.state.type === "promo" && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Promo_Promo__WEBPACK_IMPORTED_MODULE_3__["default"], {
       paramsForOrder: paramsForOrder,
-      setDuePromo: setDuePromo
+      setDuePromo: setDuePromo,
+      setPromocode: setPromocode
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "spend-points__set-type bonus",
       onClick: this.chooseBonus
@@ -4768,6 +4771,7 @@ class ChooseStock extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
 ChooseStock.propTypes = {
   setDueBonus: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
   setDuePromo: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
+  setPromocode: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
   bonuses: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
   paramsForOrder: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
 };
@@ -4857,6 +4861,7 @@ class Promo extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
             total
           } = res.data.result.order;
           this.props.setDuePromo(total_due);
+          this.props.setPromocode(code);
           this.setState({
             hint: "discount",
             discount: (total - total_due) / total * 100
@@ -4867,6 +4872,7 @@ class Promo extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
             hint: "err"
           });
           this.props.setDuePromo(false);
+          this.props.setPromocode(null);
         }
 
         this.setState({
@@ -4908,7 +4914,7 @@ class Promo extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       error: err.message
     }))), hint === "discount" && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "promo__discount"
-    }, "-", discount, "% \u043D\u0430 \u0432\u0435\u0441\u044C \u0437\u0430\u043A\u0430\u0437"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    }, "-", Math.round(discount * 10) / 10, "% \u043D\u0430 \u0432\u0435\u0441\u044C \u0437\u0430\u043A\u0430\u0437"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: `btn ${loading && "loading"} `,
       type: "button",
       onClick: this.sendCode
@@ -4918,6 +4924,7 @@ class Promo extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 }
 
 Promo.propTypes = {
+  setPromocode: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
   paramsForOrder: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
   setDuePromo: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
 };
@@ -5003,13 +5010,20 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
       payment_details: this.state.payment_details,
       payment_method: this.state.payment_method,
       total: this.state.total,
-      total_due: this.state.total_due
+      total_due: this.state.total_due,
+      promocode: this.state.promocode
     }));
 
     _defineProperty(this, "setDuePromo", amount => {
       this.setState(state => ({
         total_due: amount || state.total
       }));
+    });
+
+    _defineProperty(this, "setPromocode", promocode => {
+      this.setState({
+        promocode
+      });
     });
 
     _defineProperty(this, "setDueBonus", e => {
@@ -5045,6 +5059,7 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
     this.mounted = true;
     const deliveryMethod = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["getDeliveryMethod"])();
     this.state = {
+      promocode: null,
       definitions: this.props.definitions,
       restaurants: this.props.restaurants,
       bonusAccrualPercent: this.props.bonus_accrual_percent / 100,
@@ -5448,7 +5463,8 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
       bonuses: this.state.bonuses,
       setDueBonus: this.setDueBonus,
       setDuePromo: this.setDuePromo,
-      paramsForOrder: this.getParamsForOrder
+      paramsForOrder: this.getParamsForOrder,
+      setPromocode: this.setPromocode
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "payment__block-row payment__block"
     }, this.deliveryBlockContent, this.paymentBlockContent), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -8313,4 +8329,4 @@ ReactDOM.render(React.createElement(_components_AppComponent__WEBPACK_IMPORTED_M
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.db75a06cc02b4938edd4.js.map
+//# sourceMappingURL=main.f7932d85de8a18d8e03c.js.map

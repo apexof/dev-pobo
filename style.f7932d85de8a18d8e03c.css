@@ -1912,7 +1912,7 @@ body {
   height: 24px;
   background: #fff;
   border: 1px solid #ccc;
-  border-radius: 12px;
+  border-radius: 50%;
   box-sizing: border-box;
   vertical-align: middle;
   appearance: none;
@@ -1931,12 +1931,12 @@ body {
       position: absolute;
       display: block;
       content: '';
-      top: 2px;
-      left: 2px;
-      width: 18px;
-      height: 18px;
+      top: 3px;
+      left: 3px;
+      width: 17px;
+      height: 17px;
       background: #8dd161;
-      border-radius: 9px; }
+      border-radius: 50%; }
 
 .payment input[type='radio'] + label {
   cursor: pointer; }
@@ -4391,4 +4391,4 @@ ul.payment__accept {
     right: unset; } }
 
 
-/*# sourceMappingURL=style.db75a06cc02b4938edd4.css.map*/
+/*# sourceMappingURL=style.f7932d85de8a18d8e03c.css.map*/
