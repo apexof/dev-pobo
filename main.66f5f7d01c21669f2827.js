@@ -1432,6 +1432,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     }) => {
       const basketIconClass = mobile ? "mobile-basket-icon" : "desctop-basket-icon";
       const basketIconSrc = mobile ? _mobile_basket_icon_svg__WEBPACK_IMPORTED_MODULE_9___default.a : _basket_icon_desctop_svg__WEBPACK_IMPORTED_MODULE_8___default.a;
+      console.log(this.props.authorized.length);
       if (!this.props.authorized) return null;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(basketIconClass, {
@@ -1447,7 +1448,6 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     });
 
     _defineProperty(this, "openCart", () => {
-      console.log("cart");
       react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2___default()("reachGoal", "mobile_basket_click", {
         awesomeParameter: 42
       });
@@ -1642,7 +1642,10 @@ Header.propTypes = {
   onShowUserProfile: PropTypes.func.isRequired,
   showMobileAuth: PropTypes.bool.isRequired,
   setShowMobileMenu: PropTypes.func.isRequired,
-  authorized: PropTypes.bool.isRequired
+  authorized: PropTypes.string
+};
+Header.defaultProps = {
+  authorized: false
 };
 /* harmony default export */ __webpack_exports__["default"] = (Header);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")))
@@ -9546,4 +9549,4 @@ const store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducer
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.83e05233aa511abfc38f.js.map
+//# sourceMappingURL=main.66f5f7d01c21669f2827.js.map
