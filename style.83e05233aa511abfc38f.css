@@ -4545,6 +4545,8 @@ ul.payment__accept {
       line-height: 42px;
       color: #3D3B3B;
       margin: 0; }
+      .product-card__title-comma {
+        display: none; }
     .product-card__weight {
       font-size: 23px;
       line-height: 27px;
@@ -4553,8 +4555,6 @@ ul.payment__accept {
       align-self: flex-start;
       margin-top: 12px;
       white-space: nowrap; }
-    .product-card__mobile-price {
-      display: none; }
     .product-card__price {
       font-size: 36px;
       line-height: 42px;
@@ -4633,18 +4633,17 @@ ul.payment__accept {
       .product-card__title {
         font-size: 23px;
         line-height: 27px; }
-      .product-card__price {
-        display: none; }
-      .product-card__mobile-price {
-        display: block;
-        font-size: 23px;
-        line-height: 27px;
-        font-weight: 500; }
+        .product-card__title-comma {
+          display: inline-block; }
       .product-card__weight {
         font-size: 17px;
         line-height: 20px;
         margin-top: 7px;
+        margin-left: 10px;
         margin-right: auto; }
+      .product-card__price {
+        font-size: 23px;
+        line-height: 27px; }
       .product-card__composition {
         font-size: 17px;
         line-height: 20px;
@@ -4659,28 +4658,26 @@ ul.payment__accept {
 
 @media (max-width: 480px) {
   .product {
-    padding: 162px 0 0; }
+    padding: 226px 0 0; }
     .product-card {
       margin-bottom: 40px; }
       .product-card__img {
         height: 226px; }
       .product-card__title-container {
-        position: relative;
-        z-index: 2; }
+        margin-top: 17px; }
       .product-card__title {
-        font-size: 17px;
-        line-height: 20px;
+        font-size: 24px;
+        line-height: 28px;
         margin-top: 0; }
-      .product-card__mobile-price {
-        font-size: 17px;
-        line-height: 20px; }
       .product-card__weight {
-        font-size: 11px;
-        line-height: 13px;
-        margin-top: 5px;
-        margin-left: 10px; }
+        font-size: 15px;
+        line-height: 15px;
+        margin-top: 10px; }
+      .product-card__price {
+        font-size: 24px;
+        line-height: 28px; }
       .product-card__composition {
-        margin: 35px 0 15px;
+        margin: 30px 0 15px;
         font-size: 17px;
         line-height: 20px; }
       .product-card__composition-text {
@@ -4698,4 +4695,4 @@ ul.payment__accept {
     width: 100%; } }
 
 
-/*# sourceMappingURL=style.5a856620f3419a73caab.css.map*/
+/*# sourceMappingURL=style.83e05233aa511abfc38f.css.map*/
