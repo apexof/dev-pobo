@@ -661,9 +661,9 @@ class App extends React.Component {
     });
 
     _defineProperty(this, "setShowMobileMenu", () => {
-      this.setState({
-        showMobileAuth: !this.state.showMobileAuth
-      });
+      this.setState(state => ({
+        showMobileAuth: !state.showMobileAuth
+      }));
     });
 
     _defineProperty(this, "setAddresses", addresses => {
@@ -781,7 +781,7 @@ class App extends React.Component {
       setShowMobileMenu: this.setShowMobileMenu,
       showMobileAuth: showMobileAuth,
       onShowUserProfile: this.showUserProfile,
-      authorized: this.state.authorization.authorized
+      authorized: !!this.state.authorization.authorized
     }))), showMobileAuth ? this.mobileAuth : "", React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Switch"], null, products.map(product => product.items.map(item => React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Route"], {
       path: `/${item.alias}`,
       key: item.id,
@@ -874,6 +874,7 @@ class App extends React.Component {
       })
     })), React.createElement(_Footer_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], {
       showMobileAuth: showMobileAuth,
+      setShowMobileMenu: this.setShowMobileMenu,
       companyPhone: definitions.layout.company_phone,
       socialLinks: definitions.layout.social_links,
       authorized: authorization.authorized
@@ -1250,6 +1251,12 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
   }
 
   render() {
+    const {
+      showMobileAuth,
+      setShowMobileMenu,
+      companyPhone,
+      socialLinks
+    } = this.props;
     const order = Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["getCookie"])("lastOrder");
     const menuItems = [{
       title: "О нас",
@@ -1262,7 +1269,7 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
       link: "/restaurants"
     }];
 
-    if (!this.props.showMobileAuth) {
+    if (!showMobileAuth) {
       menuItems.push({
         link: "/legal",
         title: "Правовая информация"
@@ -1283,7 +1290,7 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
 
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("footer", {
-        "mobile-page": this.props.showMobileAuth
+        "mobile-page": showMobileAuth
       })
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "container"
@@ -1294,15 +1301,16 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "left-bar"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Menu__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      menuItems: menuItems
+      menuItems: menuItems,
+      setShowMobileMenu: showMobileAuth ? setShowMobileMenu : undefined
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "right-bar"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "contact-number"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: `tel:${this.props.companyPhone}`,
+      href: `tel:${companyPhone}`,
       onClick: this.sendPixel
-    }, this.props.companyPhone)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, companyPhone)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "bottom-level"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "left-bar"
@@ -1313,20 +1321,20 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "social-icons"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: this.props.socialLinks.instagram,
+      href: socialLinks.instagram,
       className: "social-icons__item",
       rel: "noopener noreferrer",
       target: "_blank",
       onClick: this.sendPixel
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_InstagramIcon__WEBPACK_IMPORTED_MODULE_5__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: this.props.socialLinks.facebook,
+      href: socialLinks.facebook,
       className: "social-icons__item",
       rel: "noopener noreferrer",
       target: "_blank",
       onClick: this.sendPixel
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_FacebookIcon__WEBPACK_IMPORTED_MODULE_6__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "tag"
-    }, "#", this.props.socialLinks.hashtag))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2__["YMInitializer"], {
+    }, "#", socialLinks.hashtag))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2__["YMInitializer"], {
       accounts: [54294081],
       options: {
         webvisor: true,
@@ -1341,6 +1349,7 @@ class Footer extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent 
 Footer.propTypes = {
   showMobileAuth: PropTypes.bool.isRequired,
   companyPhone: PropTypes.string.isRequired,
+  setShowMobileMenu: PropTypes.func.isRequired,
   socialLinks: PropTypes.shape({
     hashtag: PropTypes.string,
     facebook: PropTypes.string,
@@ -1397,14 +1406,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent {
   constructor(...args) {
     super(...args);
 
     _defineProperty(this, "state", {
       unfinishedOrder: Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["getCookie"])("lastOrder"),
-      mobileMenu: false,
-      profile: this.props.profile
+      mobileMenu: false
     });
 
     _defineProperty(this, "cartPrice", () => Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["formatCurrency"])(Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["getPrice1"])(this.props.cart)));
@@ -1437,45 +1445,11 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       }));
     });
 
-    _defineProperty(this, "openCart", () => {
-      react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2___default()("reachGoal", "mobile_basket_click", {
-        awesomeParameter: 42
-      });
-      window.location.href = "#/basket";
+    _defineProperty(this, "openCart", type => () => {
+      const ymId = type === "mobile" ? "mobile_basket_click" : "click-main-basket-button-on-home-page";
+      react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2___default()("reachGoal", ymId);
+      this.props.history.push("/basket");
     });
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.profile && nextProps.profile.phone !== this.state.profile.phone || nextProps.profile && nextProps.profile.bonuses !== this.state.profile.bonuses) {
-      this.setState({
-        profile: nextProps.profile
-      });
-      return true;
-    }
-
-    if (nextProps.categories !== this.state.categories) {
-      this.setState({
-        categories: nextProps.categories
-      });
-      return true;
-    }
-
-    if (nextState.mobileMenu !== this.state.mobileMenu) {
-      this.setState({
-        mobileMenu: nextState.mobileMenu
-      });
-      return true;
-    }
-
-    if (nextProps.showMobileAuth !== this.props.showMobileAuth) {
-      return true;
-    }
-
-    if (nextProps.cart !== this.props.cart) {
-      return true;
-    }
-
-    return false;
   }
 
   componentDidMount() {
@@ -1487,7 +1461,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   renderProfileButton() {
-    if (this.state.profile.phone === undefined) {
+    if (this.props.profile.phone === undefined) {
       const title = "Войти";
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContentButton__WEBPACK_IMPORTED_MODULE_13__["default"], {
         buttonType: "default",
@@ -1501,7 +1475,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       }, title);
     }
 
-    const title = `${this.state.profile.firstname || this.state.profile.phone} ${this.state.profile.bonuses}`;
+    const title = `${this.props.profile.firstname || this.props.profile.phone} ${this.props.profile.bonuses}`;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContentButton__WEBPACK_IMPORTED_MODULE_13__["default"], {
       buttonType: "default",
       buttonTitle: title,
@@ -1570,9 +1544,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     }, this.cartPrice()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
       buttonType: "basket",
       buttonTitle: "\u041A\u043E\u0440\u0437\u0438\u043D\u0430",
-      onClickMethod: () => {
-        window.location.href = "#/basket";
-      }
+      onClickMethod: this.openCart("desktop")
     }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "mobile-section"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1611,7 +1583,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       buttonClass: classnames__WEBPACK_IMPORTED_MODULE_1___default()("mobile-basket-button", {
         "hide-element": this.state.mobileMenu
       }),
-      onClickMethod: this.openCart
+      onClickMethod: this.openCart("mobile")
     })))));
   }
 
@@ -1623,12 +1595,17 @@ Header.propTypes = {
   onShowUserProfile: PropTypes.func.isRequired,
   showMobileAuth: PropTypes.bool.isRequired,
   setShowMobileMenu: PropTypes.func.isRequired,
-  authorized: PropTypes.string
+  authorized: PropTypes.bool.isRequired,
+  profile: PropTypes.shape({
+    phone: PropTypes.string,
+    firstname: PropTypes.string,
+    bonuses: PropTypes.number
+  }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired
 };
-Header.defaultProps = {
-  authorized: ""
-};
-/* harmony default export */ __webpack_exports__["default"] = (Header);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Header));
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")))
 
 /***/ }),
@@ -1640,7 +1617,7 @@ Header.defaultProps = {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzgiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAzOCAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0yNS45NDczIDEzLjg3OTRDMjUuOTQ3MyAxNS41ODA2IDI3LjMzIDE2Ljk3MDYgMjkuMDM4NSAxNi45NzA2QzMwLjczOTggMTYuOTcwNiAzMi4xMjk4IDE1LjU4NzkgMzIuMTI5OCAxMy44Nzk0QzMyLjEyOTggMTIuMTc4MSAzMC43NDcxIDEwLjc4ODEgMjkuMDM4NSAxMC43ODgxQzI3LjMzIDEwLjc4ODEgMjUuOTQ3MyAxMi4xNzA4IDI1Ljk0NzMgMTMuODc5NFpNMjcuMTg1MiAxMy44Nzk0QzI3LjE4NTIgMTIuODU4NiAyOC4wMTc4IDEyLjAyNiAyOS4wMzg1IDEyLjAyNkMzMC4wNTkzIDEyLjAyNiAzMC44OTE5IDEyLjg1ODYgMzAuODkxOSAxMy44Nzk0QzMwLjg5MTkgMTQuOTAwMSAzMC4wNTkzIDE1LjczMjcgMjkuMDM4NSAxNS43MzI3QzI4LjAxMDUgMTUuNzMyNyAyNy4xODUyIDE0LjkwMDEgMjcuMTg1MiAxMy44Nzk0WiIgZmlsbD0iYmxhY2siLz4NCjxwYXRoIGQ9Ik0wIDExLjQwNFYxMy44NzI3QzAgMTQuMjEyOSAwLjI3NTEwMSAxNC40ODggMC42MTUzNTggMTQuNDg4SDMuMDg0MDNDMy40NTMyNSAxNC40ODggMy43NDI4MyAxNC4yNDE5IDMuNjk5MzkgMTMuODcyN0MzLjY5OTM5IDExLjQ4MzYgNS42MzIzNCA5LjU1MDY5IDguMDIxMzggOS41NTA2OUMxMC40MDMyIDkuNTUwNjkgMTIuMzM2MSAxMS40NzY0IDEyLjM0MzQgMTMuODU4MkMxMi4zNDM0IDEzLjg2NTQgMTIuMzQzNCAxMy44NjU0IDEyLjM0MzQgMTMuODY1NEMxMi4zNDM0IDE0LjIwNTcgMTIuNjE4NSAxNC40ODggMTIuOTU4NyAxNC40ODhIMjQuMDc4NkMyNC40NDc4IDE0LjQ4OCAyNC43Mzc0IDE0LjI0MTkgMjQuNjk0IDEzLjg3MjdDMjQuNjk0IDExLjQ4MzYgMjYuNjI2OSA5LjU1MDY5IDI5LjAxNiA5LjU1MDY5QzMxLjM5NzggOS41NTA2OSAzMy4zMzA3IDExLjQ3NjQgMzMuMzM3OSAxMy44NTgyQzMzLjMzNzkgMTMuODY1NCAzMy4zMzc5IDEzLjg2NTQgMzMuMzM3OSAxMy44NjU0QzMzLjMzNzkgMTQuMjA1NyAzMy42MTMgMTQuNDg4IDMzLjk1MzMgMTQuNDg4SDM2LjQyMkMzNi43NjIyIDE0LjQ4OCAzNy4wMzczIDE0LjIxMjkgMzcuMDM3MyAxMy44NzI3VjExLjQwNEMzNy4wMzczIDExLjA2MzggMzYuNzYyMiAxMC43ODg2IDM2LjQyMiAxMC43ODg2TDM2LjM0OTYgOS4yNTM4N0MzNi4zMDYxIDguMjc2NTQgMzUuODEzOSA3LjM2NDM2IDM0Ljk5NTggNi44MzU4OEMzMy40MTAzIDUuODIyMzQgMzAuNzEgNS4yNjQ5IDI4LjA2NzYgNS4yMjg3QzI0LjU0OTIgMC45MzU2NzYgMTkuMDE4MiAtMC43Mjk0MTEgMTEuNjU1NiAwLjI5MTM2QzExLjY0ODQgMC4yOTEzNiAxMS42NDExIDAuMjkxMzYgMTEuNjMzOSAwLjI5ODU5OUM3LjY0NDkyIDEuMDAwODMgNS44NDIyOCAzLjExNDc3IDQuNTMxOTMgNS4zMzczTDEuMDQyNDkgNi40OTU2MkMwLjc4OTEwNyA2LjU4MjQ5IDAuNjIyNTk4IDYuODE0MTYgMC42MjI1OTggNy4wODIwMlYxMC43ODg2QzAuMjc1MTAxIDEwLjc4ODYgMCAxMS4wNjM4IDAgMTEuNDA0Wk0xNy4yOTUyIDEuNjMwNjdDMTcuMjk1MiAxLjQ0OTY4IDE3LjQ1NDUgMS4zMDQ4OSAxNy42MzU0IDEuMzE5MzdDMjAuOTk0NiAxLjYxNjE5IDIzLjcyMzkgMi43MzEwNyAyNS44NjY4IDQuNjg1NzRDMjYuMDc2NyA0Ljg4MTIxIDI1Ljk0NjQgNS4yMjg3IDI1LjY2NDEgNS4yMjg3SDE3LjYwNjVDMTcuNDMyNyA1LjIyODcgMTcuMjk1MiA1LjA5MTE1IDE3LjI5NTIgNC45MTc0MVYxLjYzMDY3Wk05Ljg1Mjk3IDIuMjgyMjJDOS44NTI5NyAyLjE1MTkxIDkuOTMyNjEgMi4wMjg4NCAxMC4wNTU3IDEuOTg1NEMxMC41OTE0IDEuNzg5OTQgMTEuMTc3OCAxLjYzMDY3IDExLjgzNjYgMS41MTQ4NEMxMy4yMTkzIDEuMzI2NjEgMTQuNTIyNSAxLjIzMjUgMTUuNzYwNCAxLjIzMjVDMTUuOTM0MiAxLjIzMjUgMTYuMDY0NSAxLjM3MDA1IDE2LjA2NDUgMS41NDM3OVY0LjkxNzQxQzE2LjA2NDUgNS4wOTExNSAxNS45MjY5IDUuMjI4NyAxNS43NTMyIDUuMjI4N0gxMC4xODZDMTAuMDE5NSA1LjIyODcgOS44ODE5MyA1LjA5MTE1IDkuODc0NjkgNC45MjQ2NUw5Ljg1Mjk3IDIuMjgyMjJaTTYuNDA2OTcgNC43MjkxOEM2Ljg5OTI1IDQuMDcwMzggNy40NTY3IDMuNDkxMjIgOC4xMjI3MyAyLjk5ODk0QzguMzI1NDQgMi44NDY5MSA4LjYyMjI2IDIuOTg0NDYgOC42MjIyNiAzLjI0NTA4TDguNjM2NzQgNC45MTc0MUM4LjYzNjc0IDUuMDkxMTUgOC40OTkxOCA1LjIyODcgOC4zMjU0NCA1LjIyODdINi42NTMxMUM2LjM5MjQ5IDUuMjI4NyA2LjI1NDk0IDQuOTMxODkgNi40MDY5NyA0LjcyOTE4WiIgZmlsbD0iYmxhY2siLz4NCjxwYXRoIGQ9Ik00Ljk0MzM2IDEzLjg3OTRDNC45NDMzNiAxNS41ODA2IDYuMzI2MTEgMTYuOTcwNiA4LjAzNDYzIDE2Ljk3MDZDOS43MzU5MSAxNi45NzA2IDExLjEyNTkgMTUuNTg3OSAxMS4xMjU5IDEzLjg3OTRDMTEuMTI1OSAxMi4xNzgxIDkuNzQzMTUgMTAuNzg4MSA4LjAzNDYzIDEwLjc4ODFDNi4zMjYxMSAxMC43ODgxIDQuOTQzMzYgMTIuMTcwOCA0Ljk0MzM2IDEzLjg3OTRaTTYuMTc0MDggMTMuODc5NEM2LjE3NDA4IDEyLjg1ODYgNy4wMDY2MiAxMi4wMjYgOC4wMjczOSAxMi4wMjZDOS4wNDgxNiAxMi4wMjYgOS44ODA3IDEyLjg1ODYgOS44ODA3IDEzLjg3OTRDOS44ODA3IDE0LjkwMDEgOS4wNDgxNiAxNS43MzI3IDguMDI3MzkgMTUuNzMyN0M3LjAwNjYyIDE1LjczMjcgNi4xNzQwOCAxNC45MDAxIDYuMTc0MDggMTMuODc5NFoiIGZpbGw9ImJsYWNrIi8+DQo8L3N2Zz4NCg=="
+module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDQiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCA0NCAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE0LjY2NDIgMTAuODA0N0MxMi45NTkzIDEwLjgwNDcgMTEuNTY2NCAxMi4xOTA0IDExLjU2NjQgMTMuOTAyNUMxMS41NjY0IDE1LjYwNzQgMTIuOTUyMSAxNy4wMDA0IDE0LjY2NDIgMTcuMDAwNEMxNi4zNjkxIDE3LjAwMDQgMTcuNzYyMSAxNS42MTQ3IDE3Ljc2MjEgMTMuOTAyNUMxNy43NTQ4IDEyLjE5NzYgMTYuMzY5MSAxMC44MDQ3IDE0LjY2NDIgMTAuODA0N1pNMTQuNjY0MiAxNS43NTk4QzEzLjY0MTMgMTUuNzU5OCAxMi44MDcgMTQuOTI1NSAxMi44MDcgMTMuOTAyNUMxMi44MDcgMTIuODc5NiAxMy42NDEzIDEyLjA0NTMgMTQuNjY0MiAxMi4wNDUzQzE1LjY4NzIgMTIuMDQ1MyAxNi41MjE1IDEyLjg3OTYgMTYuNTIxNSAxMy45MDI1QzE2LjUyMTUgMTQuOTI1NSAxNS42ODcyIDE1Ljc1OTggMTQuNjY0MiAxNS43NTk4WiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTYuNjExMzMgMTEuNDI4MlYxMy45MDIyQzYuNjExMzMgMTQuMjQzMSA2Ljg4NzAxIDE0LjUxODggNy4yMjc5OSAxNC41MTg4SDkuNzAxOTFDMTAuMDcxOSAxNC41MTg4IDEwLjM2MjEgMTQuMjcyMiAxMC4zMTg2IDEzLjkwMjJDMTAuMzE4NiAxMS41MDggMTIuMjU1NiA5LjU3MDk5IDE0LjY0OTcgOS41NzA5OUMxNy4wMzY2IDkuNTcwOTkgMTguOTczNyAxMS41MDA4IDE4Ljk4MDkgMTMuODg3NkMxOC45ODA5IDEzLjg5NDkgMTguOTgwOSAxMy44OTQ5IDE4Ljk4MDkgMTMuODk0OUMxOC45ODA5IDE0LjIzNTkgMTkuMjU2NiAxNC41MTg4IDE5LjU5NzYgMTQuNTE4OEgzMC43NDExQzMxLjExMTEgMTQuNTE4OCAzMS40MDEzIDE0LjI3MjIgMzEuMzU3OCAxMy45MDIyQzMxLjM1NzggMTEuNTA4IDMzLjI5NDggOS41NzA5OSAzNS42ODg5IDkuNTcwOTlDMzguMDc1OCA5LjU3MDk5IDQwLjAxMjggMTEuNTAwOCA0MC4wMjAxIDEzLjg4NzZDNDAuMDIwMSAxMy44OTQ5IDQwLjAyMDEgMTMuODk0OSA0MC4wMjAxIDEzLjg5NDlDNDAuMDIwMSAxNC4yMzU5IDQwLjI5NTggMTQuNTE4OCA0MC42MzY4IDE0LjUxODhINDMuMTEwN0M0My40NTE3IDE0LjUxODggNDMuNzI3NCAxNC4yNDMxIDQzLjcyNzQgMTMuOTAyMlYxMS40MjgyQzQzLjcyNzQgMTEuMDg3MyA0My40NTE3IDEwLjgxMTYgNDMuMTEwNyAxMC44MTE2TDQzLjAzODEgOS4yNzM1M0M0Mi45OTQ2IDguMjk0MTIgNDIuNTAxMyA3LjM4MDAxIDQxLjY4MTUgNi44NTA0QzQwLjA5MjcgNS44MzQ3MiAzNy4zODY2IDUuMjc2MDkgMzQuNzM4NSA1LjIzOTgxQzMxLjE4MzYgMC45Mzc2NjQgMjUuNjQwOSAtMC43MzA5NjEgMTguMjYyNyAwLjI5MTk3OUMxOC4yNTU0IDAuMjkxOTc5IDE4LjI0ODIgMC4yOTE5NzkgMTguMjQwOSAwLjI5OTIzNEMxNC4yNDM1IDEuMDAyOTYgMTIuNDM3IDMuMTIxMzkgMTEuMTIzOSA1LjM0ODY0TDcuNjM0MjcgNi41MTY2OEM3LjM4MDM1IDYuNjAzNzMgNy4yMTM0OCA2LjgzNTg5IDcuMjEzNDggNy4xMDQzMlYxMC44MTg4QzYuODg3MDEgMTAuODA0MyA2LjYxMTMzIDExLjA4NzMgNi42MTEzMyAxMS40MjgyWk0yMy45NTA1IDEuNjI2ODhDMjMuOTUwNSAxLjQ0NTUxIDI0LjExMDEgMS4zMDA0MSAyNC4yOTE1IDEuMzE0OTJDMjcuNjU3OCAxLjYxMjM3IDMwLjM5MjkgMi43Mjk2MiAzMi41NDAzIDQuNjg4NDRDMzIuNzUwNyA0Ljg4NDMyIDMyLjYyMDEgNS4yMzI1NiAzMi4zMzcyIDUuMjMyNTZIMjQuMjU1MkMyNC4wODExIDUuMjMyNTYgMjMuOTQzMyA1LjA5NDcyIDIzLjk0MzMgNC45MjA2TDIzLjk1MDUgMS42MjY4OFpNMTYuNDg1MiAyLjI3OTgyQzE2LjQ4NTIgMi4xNDkyMyAxNi41NjUgMi4wMjU5IDE2LjY4ODQgMS45ODIzN0MxNy4yMjUyIDEuNzg2NDkgMTcuODEyOSAxLjYyNjg4IDE4LjQ3MzEgMS41MTA4QzE5Ljg1ODggMS4zMjIxNyAyMS4xNjQ2IDEuMjI3ODYgMjIuNDA1MiAxLjIyNzg2QzIyLjU3OTMgMS4yMjc4NiAyMi43MDk5IDEuMzY1NyAyMi43MDk5IDEuNTM5ODJWNC45MjA2QzIyLjcwOTkgNS4wOTQ3MiAyMi41NzIxIDUuMjMyNTYgMjIuMzk4IDUuMjMyNTZIMTYuODE5QzE2LjY1MjEgNS4yMzI1NiAxNi41MTQzIDUuMDk0NzIgMTYuNTA3IDQuOTI3ODVMMTYuNDg1MiAyLjI3OTgyWk0xMy4wMzE5IDQuNzMxOTdDMTMuNTI1MiA0LjA3MTc4IDE0LjA4MzkgMy40OTEzOSAxNC43NTEzIDIuOTk4MDVDMTQuOTU0NSAyLjg0NTcgMTUuMjUxOSAyLjk4MzU0IDE1LjI1MTkgMy4yNDQ3MkwxNS4yNjY0IDQuOTIwNkMxNS4yNjY0IDUuMDk0NzIgMTUuMTI4NiA1LjIzMjU2IDE0Ljk1NDUgNS4yMzI1NkgxMy4yNzEzQzEzLjAyNDcgNS4yMzI1NiAxMi44Nzk2IDQuOTQyMzYgMTMuMDMxOSA0LjczMTk3WiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTM1LjcwOTIgMTAuODA0N0MzNC4wMDQzIDEwLjgwNDcgMzIuNjExMyAxMi4xOTA0IDMyLjYxMTMgMTMuOTAyNUMzMi42MTEzIDE1LjYwNzQgMzMuOTk3IDE3LjAwMDQgMzUuNzA5MiAxNy4wMDA0QzM3LjQxNDEgMTcuMDAwNCAzOC44MDcgMTUuNjE0NyAzOC44MDcgMTMuOTAyNUMzOC44MDcgMTIuMTk3NiAzNy40MTQxIDEwLjgwNDcgMzUuNzA5MiAxMC44MDQ3Wk0zNS43MDkyIDE1Ljc1OThDMzQuNjg2MiAxNS43NTk4IDMzLjg1MTkgMTQuOTI1NSAzMy44NTE5IDEzLjkwMjVDMzMuODUxOSAxMi44Nzk2IDM0LjY4NjIgMTIuMDQ1MyAzNS43MDkyIDEyLjA0NTNDMzYuNzMyMSAxMi4wNDUzIDM3LjU2NjQgMTIuODc5NiAzNy41NjY0IDEzLjkwMjVDMzcuNTY2NCAxNC45MjU1IDM2LjczMjEgMTUuNzU5OCAzNS43MDkyIDE1Ljc1OThaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNMTEuNDU3NCAyLjQ5SDYuMzQyNjZDNi4xMTA1IDIuNDkgNS45MjE4OCAyLjMwMTM4IDUuOTIxODggMi4wNjkyMkM1LjkyMTg4IDEuODM3MDYgNi4xMTA1IDEuNjQ4NDQgNi4zNDI2NiAxLjY0ODQ0SDExLjQ1NzRDMTEuNjg5NSAxLjY0ODQ0IDExLjg3ODEgMS44MzcwNiAxMS44NzgxIDIuMDY5MjJDMTEuODcwOSAyLjMwMTM4IDExLjY4MjMgMi40OSAxMS40NTc0IDIuNDlaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNOC43MDczNiA0LjkwNjAySDMuNTkyNjZDMy4zNjA1IDQuOTA2MDIgMy4xNzE4OCA0LjcxNzM5IDMuMTcxODggNC40ODUyNEMzLjE3MTg4IDQuMjUzMDggMy4zNjA1IDQuMDY0NDUgMy41OTI2NiA0LjA2NDQ1SDguNzA3MzZDOC45Mzk1MSA0LjA2NDQ1IDkuMTI4MTQgNC4yNTMwOCA5LjEyODE0IDQuNDg1MjRDOS4xMjgxNCA0LjcxNzM5IDguOTM5NTEgNC45MDYwMiA4LjcwNzM2IDQuOTA2MDJaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNNS43MzI3NSA3LjMyNzlIMC42MTgwNDlDMC4zODU4OTMgNy4zMjc5IDAuMTk3MjY2IDcuMTM5MjcgMC4xOTcyNjYgNi45MDcxMUMwLjE5NzI2NiA2LjY3NDk1IDAuMzg1ODkzIDYuNDg2MzMgMC42MTgwNDkgNi40ODYzM0g1LjczMjc1QzUuOTY0OSA2LjQ4NjMzIDYuMTUzNTMgNi42NzQ5NSA2LjE1MzUzIDYuOTA3MTFDNi4xNTM1MyA3LjEzOTI3IDUuOTY0OSA3LjMyNzkgNS43MzI3NSA3LjMyNzlaIiBmaWxsPSJibGFjayIvPgo8L3N2Zz4K"
 
 /***/ }),
 
@@ -1677,7 +1654,7 @@ const ConnectedHeader = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAyNSAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xNi44MzU5IDkuMDA4MkMxNi44MzU5IDEwLjExMjMgMTcuNzMzMyAxMS4wMTQ0IDE4Ljg0MjIgMTEuMDE0NEMxOS45NDYzIDExLjAxNDQgMjAuODQ4NCAxMC4xMTcgMjAuODQ4NCA5LjAwODJDMjAuODQ4NCA3LjkwNDA2IDE5Ljk1MSA3LjAwMTk1IDE4Ljg0MjIgNy4wMDE5NUMxNy43MzMzIDcuMDAxOTUgMTYuODM1OSA3Ljg5OTM2IDE2LjgzNTkgOS4wMDgyWk0xNy42Mzk0IDkuMDA4MkMxNy42Mzk0IDguMzQ1NzEgMTguMTc5NyA3LjgwNTM5IDE4Ljg0MjIgNy44MDUzOUMxOS41MDQ3IDcuODA1MzkgMjAuMDQ1IDguMzQ1NzEgMjAuMDQ1IDkuMDA4MkMyMC4wNDUgOS42NzA2OCAxOS41MDQ3IDEwLjIxMSAxOC44NDIyIDEwLjIxMUMxOC4xNzUgMTAuMjExIDE3LjYzOTQgOS42NzA2OCAxNy42Mzk0IDkuMDA4MloiIGZpbGw9IndoaXRlIi8+DQo8cGF0aCBkPSJNMCA3LjQwMTIzVjkuMDAzNDFDMCA5LjIyNDI0IDAuMTc4NTQyIDkuNDAyNzggMC4zOTkzNjkgOS40MDI3OEgyLjAwMTU0QzIuMjQxMTcgOS40MDI3OCAyLjQyOTEgOS4yNDMwMyAyLjQwMDkxIDkuMDAzNDFDMi40MDA5MSA3LjQ1MjkyIDMuNjU1NCA2LjE5ODQzIDUuMjA1OSA2LjE5ODQzQzYuNzUxNjkgNi4xOTg0MyA4LjAwNjE4IDcuNDQ4MjIgOC4wMTA4OCA4Ljk5NDAxQzguMDEwODggOC45OTg3MSA4LjAxMDg4IDguOTk4NzEgOC4wMTA4OCA4Ljk5ODcxQzguMDEwODggOS4yMTk1NCA4LjE4OTQyIDkuNDAyNzggOC40MTAyNSA5LjQwMjc4SDE1LjYyNzFDMTUuODY2NyA5LjQwMjc4IDE2LjA1NDYgOS4yNDMwMyAxNi4wMjY1IDkuMDAzNDFDMTYuMDI2NSA3LjQ1MjkyIDE3LjI4MDkgNi4xOTg0MyAxOC44MzE0IDYuMTk4NDNDMjAuMzc3MiA2LjE5ODQzIDIxLjYzMTcgNy40NDgyMiAyMS42MzY0IDguOTk0MDFDMjEuNjM2NCA4Ljk5ODcxIDIxLjYzNjQgOC45OTg3MSAyMS42MzY0IDguOTk4NzFDMjEuNjM2NCA5LjIxOTU0IDIxLjgxNSA5LjQwMjc4IDIyLjAzNTggOS40MDI3OEgyMy42MzhDMjMuODU4OCA5LjQwMjc4IDI0LjAzNzMgOS4yMjQyNCAyNC4wMzczIDkuMDAzNDFWNy40MDEyM0MyNC4wMzczIDcuMTgwNDEgMjMuODU4OCA3LjAwMTg2IDIzLjYzOCA3LjAwMTg2TDIzLjU5MSA2LjAwNTc5QzIzLjU2MjggNS4zNzE1IDIzLjI0MzMgNC43Nzk0OSAyMi43MTI0IDQuNDM2NUMyMS42ODM0IDMuNzc4NzIgMTkuOTMwOSAzLjQxNjk0IDE4LjIxNTkgMy4zOTM0NEMxNS45MzI1IDAuNjA3MjU2IDEyLjM0MjkgLTAuNDczMzkgNy41NjQ1MiAwLjE4OTA5M0M3LjU1OTgzIDAuMTg5MDkzIDcuNTU1MTMgMC4xODkwOTMgNy41NTA0MyAwLjE5Mzc5MkM0Ljk2MTU4IDAuNjQ5NTQzIDMuNzkxNjYgMi4wMjE0OSAyLjk0MTI0IDMuNDYzOTJMMC42NzY1NzkgNC4yMTU2OEMwLjUxMjEzMiA0LjI3MjA2IDAuNDA0MDY4IDQuNDIyNDEgMC40MDQwNjggNC41OTYyNVY3LjAwMTg2QzAuMTc4NTQyIDcuMDAxODYgMCA3LjE4MDQxIDAgNy40MDEyM1pNMTEuMjI0NiAxLjA1ODMxQzExLjIyNDYgMC45NDA4NDcgMTEuMzI4IDAuODQ2ODc4IDExLjQ0NTUgMC44NTYyNzVDMTMuNjI1NSAxLjA0ODkxIDE1LjM5NjkgMS43NzI0NyAxNi43ODc2IDMuMDQxMDZDMTYuOTIzOSAzLjE2NzkyIDE2LjgzOTMgMy4zOTM0NCAxNi42NTYgMy4zOTM0NEgxMS40MjY3QzExLjMxMzkgMy4zOTM0NCAxMS4yMjQ2IDMuMzA0MTcgMTEuMjI0NiAzLjE5MTQxVjEuMDU4MzFWMS4wNTgzMVpNNi4zOTQ2MSAxLjQ4MTE3QzYuMzk0NjEgMS4zOTY2IDYuNDQ2MjkgMS4zMTY3MiA2LjUyNjE2IDEuMjg4NTNDNi44NzM4NSAxLjE2MTY3IDcuMjU0NDMgMS4wNTgzMSA3LjY4MTk5IDAuOTgzMTMzQzguNTc5MzkgMC44NjA5NzMgOS40MjUxMiAwLjc5OTg5MyAxMC4yMjg2IDAuNzk5ODkzQzEwLjM0MTMgMC43OTk4OTMgMTAuNDI1OSAwLjg4OTE2NCAxMC40MjU5IDEuMDAxOTNWMy4xOTE0MUMxMC40MjU5IDMuMzA0MTcgMTAuMzM2NiAzLjM5MzQ0IDEwLjIyMzkgMy4zOTM0NEg2LjYxMDc0QzYuNTAyNjcgMy4zOTM0NCA2LjQxMzQgMy4zMDQxNyA2LjQwODcgMy4xOTYxMUw2LjM5NDYxIDEuNDgxMTdaTTQuMTU4MTQgMy4wNjkyNUM0LjQ3NzYzIDIuNjQxNjkgNC44Mzk0MiAyLjI2NTgxIDUuMjcxNjcgMS45NDYzMkM1LjQwMzIzIDEuODQ3NjUgNS41OTU4NyAxLjkzNjkyIDUuNTk1ODcgMi4xMDYwN0w1LjYwNTI3IDMuMTkxNDFDNS42MDUyNyAzLjMwNDE3IDUuNTE1OTkgMy4zOTM0NCA1LjQwMzIzIDMuMzkzNDRINC4zMTc4OUM0LjE0ODc0IDMuMzkzNDQgNC4wNTk0NyAzLjIwMDgxIDQuMTU4MTQgMy4wNjkyNVoiIGZpbGw9IndoaXRlIi8+DQo8cGF0aCBkPSJNMy4yMDcwMyA5LjAwODJDMy4yMDcwMyAxMC4xMTIzIDQuMTA0NDQgMTEuMDE0NCA1LjIxMzI3IDExLjAxNDRDNi4zMTc0MSAxMS4wMTQ0IDcuMjE5NTIgMTAuMTE3IDcuMjE5NTIgOS4wMDgyQzcuMjE5NTIgNy45MDQwNiA2LjMyMjExIDcuMDAxOTUgNS4yMTMyNyA3LjAwMTk1QzQuMTA0NDQgNy4wMDE5NSAzLjIwNzAzIDcuODk5MzYgMy4yMDcwMyA5LjAwODJaTTQuMDA1NzcgOS4wMDgyQzQuMDA1NzcgOC4zNDU3MSA0LjU0NjA5IDcuODA1MzkgNS4yMDg1OCA3LjgwNTM5QzUuODcxMDYgNy44MDUzOSA2LjQxMTM4IDguMzQ1NzEgNi40MTEzOCA5LjAwODJDNi40MTEzOCA5LjY3MDY4IDUuODcxMDYgMTAuMjExIDUuMjA4NTggMTAuMjExQzQuNTQ2MDkgMTAuMjExIDQuMDA1NzcgOS42NzA2OCA0LjAwNTc3IDkuMDA4MloiIGZpbGw9IndoaXRlIi8+DQo8L3N2Zz4NCg=="
+module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAzMCAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTkuODE2MzYgNy43OTY4OEM4LjY1OTc5IDcuNzk2ODggNy43MTQ4NCA4LjczNjkgNy43MTQ4NCA5Ljg5ODM5QzcuNzE0ODQgMTEuMDU1IDguNjU0ODcgMTEuOTk5OSA5LjgxNjM2IDExLjk5OTlDMTAuOTcyOSAxMS45OTk5IDExLjkxNzkgMTEuMDU5OSAxMS45MTc5IDkuODk4MzlDMTEuOTEzIDguNzQxODIgMTAuOTcyOSA3Ljc5Njg4IDkuODE2MzYgNy43OTY4OFpNOS44MTYzNiAxMS4xNTgzQzkuMTIyNDIgMTEuMTU4MyA4LjU1NjQzIDEwLjU5MjMgOC41NTY0MyA5Ljg5ODM5QzguNTU2NDMgOS4yMDQ0NSA5LjEyMjQyIDguNjM4NDcgOS44MTYzNiA4LjYzODQ3QzEwLjUxMDMgOC42Mzg0NyAxMS4wNzYzIDkuMjA0NDUgMTEuMDc2MyA5Ljg5ODM5QzExLjA3NjMgMTAuNTkyMyAxMC41MTAzIDExLjE1ODMgOS44MTYzNiAxMS4xNTgzWiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTQuMzUxNTYgOC4yMTk1VjkuODk3NzZDNC4zNTE1NiAxMC4xMjkxIDQuNTM4NTggMTAuMzE2MSA0Ljc2OTkgMTAuMzE2MUg2LjQ0ODE2QzYuNjk5MTYgMTAuMzE2MSA2Ljg5NjAyIDEwLjE0ODggNi44NjY0OSA5Ljg5Nzc2QzYuODY2NDkgOC4yNzM2MyA4LjE4MDU1IDYuOTU5NTcgOS44MDQ2NyA2Ljk1OTU3QzExLjQyMzkgNi45NTk1NyAxMi43Mzc5IDguMjY4NzEgMTIuNzQyOSA5Ljg4NzkxQzEyLjc0MjkgOS44OTI4MyAxMi43NDI5IDkuODkyODMgMTIuNzQyOSA5Ljg5MjgzQzEyLjc0MjkgMTAuMTI0MSAxMi45Mjk5IDEwLjMxNjEgMTMuMTYxMiAxMC4zMTYxSDIwLjcyMDdDMjAuOTcxNyAxMC4zMTYxIDIxLjE2ODYgMTAuMTQ4OCAyMS4xMzkxIDkuODk3NzZDMjEuMTM5MSA4LjI3MzYzIDIyLjQ1MzEgNi45NTk1NyAyNC4wNzczIDYuOTU5NTdDMjUuNjk2NSA2Ljk1OTU3IDI3LjAxMDUgOC4yNjg3MSAyNy4wMTU0IDkuODg3OTFDMjcuMDE1NCA5Ljg5MjgzIDI3LjAxNTQgOS44OTI4MyAyNy4wMTU0IDkuODkyODNDMjcuMDE1NCAxMC4xMjQxIDI3LjIwMjUgMTAuMzE2MSAyNy40MzM4IDEwLjMxNjFIMjkuMTEyQzI5LjM0MzMgMTAuMzE2MSAyOS41MzA0IDEwLjEyOTEgMjkuNTMwNCA5Ljg5Nzc2VjguMjE5NUMyOS41MzA0IDcuOTg4MTggMjkuMzQzMyA3LjgwMTE2IDI5LjExMiA3LjgwMTE2TDI5LjA2MjggNi43NTc3OUMyOS4wMzMzIDYuMDkzMzcgMjguNjk4NiA1LjQ3MzI1IDI4LjE0MjUgNS4xMTM5OEMyNy4wNjQ3IDQuNDI0OTYgMjUuMjI4OSA0LjA0NiAyMy40MzI1IDQuMDIxMzlDMjEuMDIxIDEuMTAyODkgMTcuMjYwOSAtMC4wMjkwNzMyIDEyLjI1NTYgMC42NjQ4N0MxMi4yNTA3IDAuNjY0ODcgMTIuMjQ1OCAwLjY2NDg3IDEyLjI0MDkgMC42Njk3OTFDOS41MjkwNiAxLjE0NzE4IDguMzAzNTkgMi41ODQyOSA3LjQxMjc5IDQuMDk1MjFMNS4wNDU1MSA0Ljg4NzU5QzQuODczMjUgNC45NDY2NSA0Ljc2MDA1IDUuMTA0MTQgNC43NjAwNSA1LjI4NjIzVjcuODA2MDhDNC41Mzg1OCA3Ljc5NjI0IDQuMzUxNTYgNy45ODgxOCA0LjM1MTU2IDguMjE5NVpNMTYuMTE0MSAxLjU3MDQ0QzE2LjExNDEgMS40NDc0IDE2LjIyMjQgMS4zNDg5NyAxNi4zNDU1IDEuMzU4ODFDMTguNjI5MSAxLjU2MDYgMjAuNDg0NSAyLjMxODUyIDIxLjk0MTMgMy42NDczNUMyMi4wODQgMy43ODAyMyAyMS45OTU0IDQuMDE2NDcgMjEuODAzNSA0LjAxNjQ3SDE2LjMyMDhDMTYuMjAyNyA0LjAxNjQ3IDE2LjEwOTIgMy45MjI5NiAxNi4xMDkyIDMuODA0ODRMMTYuMTE0MSAxLjU3MDQ0Wk0xMS4wNDk4IDIuMDEzMzhDMTEuMDQ5OCAxLjkyNDc5IDExLjEwNCAxLjg0MTEzIDExLjE4NzYgMS44MTE2QzExLjU1MTggMS42Nzg3MiAxMS45NTA1IDEuNTcwNDQgMTIuMzk4MyAxLjQ5MTdDMTMuMzM4NCAxLjM2MzczIDE0LjIyNDMgMS4yOTk3NSAxNS4wNjU4IDEuMjk5NzVDMTUuMTg0IDEuMjk5NzUgMTUuMjcyNSAxLjM5MzI2IDE1LjI3MjUgMS41MTEzOFYzLjgwNDg0QzE1LjI3MjUgMy45MjI5NiAxNS4xNzkgNC4wMTY0NyAxNS4wNjA5IDQuMDE2NDdIMTEuMjc2MkMxMS4xNjMgNC4wMTY0NyAxMS4wNjk1IDMuOTIyOTYgMTEuMDY0NiAzLjgwOTc2TDExLjA0OTggMi4wMTMzOFpNOC43MDcxNiAzLjY3Njg4QzkuMDQxODMgMy4yMjkwMSA5LjQyMDc5IDIuODM1MjkgOS44NzM1OCAyLjUwMDYyQzEwLjAxMTQgMi4zOTcyNyAxMC4yMTMyIDIuNDkwNzggMTAuMjEzMiAyLjY2Nzk1TDEwLjIyMyAzLjgwNDg0QzEwLjIyMyAzLjkyMjk2IDEwLjEyOTUgNC4wMTY0NyAxMC4wMTE0IDQuMDE2NDdIOC44Njk1N0M4LjcwMjI0IDQuMDE2NDcgOC42MDM4MSAzLjgxOTYgOC43MDcxNiAzLjY3Njg4WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTI0LjA4OTggNy43OTY4OEMyMi45MzMyIDcuNzk2ODggMjEuOTg4MyA4LjczNjkgMjEuOTg4MyA5Ljg5ODM5QzIxLjk4ODMgMTEuMDU1IDIyLjkyODMgMTEuOTk5OSAyNC4wODk4IDExLjk5OTlDMjUuMjQ2NCAxMS45OTk5IDI2LjE5MTMgMTEuMDU5OSAyNi4xOTEzIDkuODk4MzlDMjYuMTkxMyA4Ljc0MTgyIDI1LjI0NjQgNy43OTY4OCAyNC4wODk4IDcuNzk2ODhaTTI0LjA4OTggMTEuMTU4M0MyMy4zOTU5IDExLjE1ODMgMjIuODI5OSAxMC41OTIzIDIyLjgyOTkgOS44OTgzOUMyMi44Mjk5IDkuMjA0NDUgMjMuMzk1OSA4LjYzODQ3IDI0LjA4OTggOC42Mzg0N0MyNC43ODM3IDguNjM4NDcgMjUuMzQ5NyA5LjIwNDQ1IDI1LjM0OTcgOS44OTgzOUMyNS4zNDk3IDEwLjU5MjMgMjQuNzgzNyAxMS4xNTgzIDI0LjA4OTggMTEuMTU4M1oiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik03LjYzOTkzIDIuMTU2ODRINC4xNzAyMkM0LjAxMjczIDIuMTU2ODQgMy44ODQ3NyAyLjAyODg4IDMuODg0NzcgMS44NzEzOUMzLjg4NDc3IDEuNzEzOSA0LjAxMjczIDEuNTg1OTQgNC4xNzAyMiAxLjU4NTk0SDcuNjM5OTNDNy43OTc0MiAxLjU4NTk0IDcuOTI1MzggMS43MTM5IDcuOTI1MzggMS44NzEzOUM3LjkyMDQ2IDIuMDI4ODggNy43OTI1IDIuMTU2ODQgNy42Mzk5MyAyLjE1Njg0WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTUuNzcwNzkgMy43OTU1MUgyLjMwMTA4QzIuMTQzNTkgMy43OTU1MSAyLjAxNTYyIDMuNjY3NTUgMi4wMTU2MiAzLjUxMDA2QzIuMDE1NjIgMy4zNTI1NyAyLjE0MzU5IDMuMjI0NjEgMi4zMDEwOCAzLjIyNDYxSDUuNzcwNzlDNS45MjgyOCAzLjIyNDYxIDYuMDU2MjQgMy4zNTI1NyA2LjA1NjI0IDMuNTEwMDZDNi4wNTYyNCAzLjY2NzU1IDUuOTI4MjggMy43OTU1MSA1Ljc3MDc5IDMuNzk1NTFaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMy43NTUxNyA1LjQzODA5SDAuMjg1NDUyQzAuMTI3OTYxIDUuNDM4MDkgMCA1LjMxMDEzIDAgNS4xNTI2NEMwIDQuOTk1MTUgMC4xMjc5NjEgNC44NjcxOSAwLjI4NTQ1MiA0Ljg2NzE5SDMuNzU1MTdDMy45MTI2NiA0Ljg2NzE5IDQuMDQwNjIgNC45OTUxNSA0LjA0MDYyIDUuMTUyNjRDNC4wNDA2MiA1LjMxMDEzIDMuOTEyNjYgNS40MzgwOSAzLjc1NTE3IDUuNDM4MDlaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K"
 
 /***/ }),
 
@@ -2461,10 +2438,20 @@ class Menu extends React.Component {
       }
     }, item.title));
 
-    _defineProperty(this, "renderLink", item => React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    _defineProperty(this, "goHref", href => () => {
+      const {
+        location,
+        setShowMobileMenu,
+        history
+      } = this.props;
+      const hereAndModile = location.pathname === href && setShowMobileMenu;
+      return hereAndModile ? setShowMobileMenu() : history.push(href);
+    });
+
+    _defineProperty(this, "renderLink", item => React.createElement("div", {
       key: item.link,
-      to: item.link,
-      className: "menu__item"
+      className: "menu__item",
+      onClick: this.goHref(item.link)
     }, item.title));
   }
 
@@ -2486,12 +2473,18 @@ class Menu extends React.Component {
 
 Menu.propTypes = {
   menuItems: PropTypes.instanceOf(Array),
+  setShowMobileMenu: PropTypes.func,
   location: PropTypes.shape({
-    hash: PropTypes.string.isRequired
+    hash: PropTypes.string.isRequired,
+    pathname: PropTypes.string.isRequired
+  }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
   }).isRequired
 };
 Menu.defaultProps = {
-  menuItems: []
+  menuItems: [],
+  setShowMobileMenu: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Menu));
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")))
@@ -3618,16 +3611,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/lib/Helmet.js");
-/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_helmet__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../helpers */ "./src/helpers.js");
-/* harmony import */ var _icons_AddItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../icons/AddItem */ "./src/components/icons/AddItem.js");
-/* harmony import */ var _icons_RemoveItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../icons/RemoveItem */ "./src/components/icons/RemoveItem.js");
-/* harmony import */ var _icons_RemoveItemButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../icons/RemoveItemButton */ "./src/components/icons/RemoveItemButton.js");
-/* harmony import */ var _icons_EmptyBasketIcon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../icons/EmptyBasketIcon */ "./src/components/icons/EmptyBasketIcon.js");
-/* harmony import */ var _Hits__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../Hits */ "./src/components/Hits/index.js");
-/* harmony import */ var _warning_icon_svg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./warning-icon.svg */ "./src/components/Pages/BasketArea/warning-icon.svg");
-/* harmony import */ var _warning_icon_svg__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_warning_icon_svg__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-yandex-metrika */ "./node_modules/react-yandex-metrika/lib/index.js");
+/* harmony import */ var react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/lib/Helmet.js");
+/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_helmet__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../helpers */ "./src/helpers.js");
+/* harmony import */ var _icons_AddItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../icons/AddItem */ "./src/components/icons/AddItem.js");
+/* harmony import */ var _icons_RemoveItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../icons/RemoveItem */ "./src/components/icons/RemoveItem.js");
+/* harmony import */ var _icons_RemoveItemButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../icons/RemoveItemButton */ "./src/components/icons/RemoveItemButton.js");
+/* harmony import */ var _icons_EmptyBasketIcon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../icons/EmptyBasketIcon */ "./src/components/icons/EmptyBasketIcon.js");
+/* harmony import */ var _Hits__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../Hits */ "./src/components/Hits/index.js");
+/* harmony import */ var _warning_icon_svg__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./warning-icon.svg */ "./src/components/Pages/BasketArea/warning-icon.svg");
+/* harmony import */ var _warning_icon_svg__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_warning_icon_svg__WEBPACK_IMPORTED_MODULE_10__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -3640,12 +3638,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "clickPickupDelivery", type => () => {
+      Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["fbPixel"])("micro");
+      react_yandex_metrika__WEBPACK_IMPORTED_MODULE_2___default()("reachGoal", "click-pickup-delivery");
+      this.redirectToPayment(type);
+    });
+  }
+
   get isDeliveryAvailable() {
     const {
       min_amount_for_delivery,
       cart
     } = this.props;
-    const cartPrice = Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["getPrice1"])(cart);
+    const cartPrice = Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["getPrice1"])(cart);
     return cartPrice === 0 || min_amount_for_delivery === 0 || cartPrice >= min_amount_for_delivery;
   }
 
@@ -3668,7 +3676,7 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
       className: "basket-pos__price"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       "data-price": item.itemData.price
-    }, Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["formatCurrency"])(item.itemData.price || item.itemData.amount))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["formatCurrency"])(item.itemData.price || item.itemData.amount))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket-pos__consist"
     }, item.itemData.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket-pos__specifications"
@@ -3682,21 +3690,21 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
       onClick: () => {
         removeAllItemsFromCart(item.itemData.id);
       }
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_RemoveItemButton__WEBPACK_IMPORTED_MODULE_6__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_RemoveItemButton__WEBPACK_IMPORTED_MODULE_7__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket-pos__amount amount-item"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       onClick: () => {
         removeFromCart(item.itemData.id);
       },
       className: "amount-item__dec"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_RemoveItem__WEBPACK_IMPORTED_MODULE_5__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_RemoveItem__WEBPACK_IMPORTED_MODULE_6__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "amount-item__field"
     }, item.numberItems), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       onClick: () => {
         addToCart(item.itemData);
       },
       className: "amount-item__inc"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_AddItem__WEBPACK_IMPORTED_MODULE_4__["default"], null))))));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_AddItem__WEBPACK_IMPORTED_MODULE_5__["default"], null))))));
   }
 
   get basket() {
@@ -3708,7 +3716,7 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
       className: "basket-total__cost"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "js-total-cost"
-    }, Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["formatCurrency"])(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["getPrice1"])(this.props.cart)))));
+    }, Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["formatCurrency"])(Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["getPrice1"])(this.props.cart)))));
   }
 
   get buttons() {
@@ -3716,18 +3724,12 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
       className: "basket-total__buttons"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "basket-total__btn_dark btn-transparent",
-      onClick: () => {
-        this.redirectToPayment(1);
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["fbPixel"])("micro");
-      },
+      onClick: this.clickPickupDelivery(1),
       type: "button"
     }, "\u0421\u0430\u043C\u043E\u0432\u044B\u0432\u043E\u0437"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "basket-total__btn_light btn-primary",
       disabled: !this.isDeliveryAvailable,
-      onClick: () => {
-        this.redirectToPayment(2);
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["fbPixel"])("micro");
-      },
+      onClick: this.clickPickupDelivery(2),
       type: "button"
     }, "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430"));
   }
@@ -3743,7 +3745,7 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
       className: "basket-empty"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket-empty__icon"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_EmptyBasketIcon__WEBPACK_IMPORTED_MODULE_7__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_EmptyBasketIcon__WEBPACK_IMPORTED_MODULE_8__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket-empty__text"
     }, "\u0412 \u043A\u043E\u0440\u0437\u0438\u043D\u0435 \u043F\u043E\u043A\u0430 \u0435\u0449\u0435 \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435\u0442"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket-empty__button"
@@ -3757,7 +3759,7 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
   }
 
   redirectToPayment(type) {
-    Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["setDeliveryMethod"])(type);
+    Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["setDeliveryMethod"])(type);
     this.props.onNavigateRequest("#/payment");
   }
 
@@ -3771,7 +3773,7 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("page basket-page", {
         "hide-element": showMobileAuth
       })
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_helmet__WEBPACK_IMPORTED_MODULE_2___default.a, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", null, pageTitle)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_helmet__WEBPACK_IMPORTED_MODULE_3___default.a, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", null, pageTitle)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "page__container container"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "page__title"
@@ -3782,15 +3784,15 @@ class BasketArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "basket-warning__icon"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      src: _warning_icon_svg__WEBPACK_IMPORTED_MODULE_9___default.a,
+      src: _warning_icon_svg__WEBPACK_IMPORTED_MODULE_10___default.a,
       alt: ""
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "basket-warning__text"
-    }, "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F \u0441\u0443\u043C\u043C\u0430 \u0437\u0430\u043A\u0430\u0437\u0430 ", Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["formatCurrency"])(min_amount_for_delivery), ". \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0441\u0430\u043C\u043E\u0432\u044B\u0432\u043E\u0437 \u0438\u043B\u0438 \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C \u043A\u043E\u0440\u0437\u0438\u043D\u0443.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F \u0441\u0443\u043C\u043C\u0430 \u0437\u0430\u043A\u0430\u0437\u0430 ", Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["formatCurrency"])(min_amount_for_delivery), ". \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0441\u0430\u043C\u043E\u0432\u044B\u0432\u043E\u0437 \u0438\u043B\u0438 \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C \u043A\u043E\u0440\u0437\u0438\u043D\u0443.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "basket"
     }, this.items)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "container"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Hits__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Hits__WEBPACK_IMPORTED_MODULE_9__["default"], {
       title: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0443\u0435\u043C",
       withScroll: true
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -5482,29 +5484,32 @@ Email.defaultProps = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_payment_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-payment-icons */ "./node_modules/react-payment-icons/build/index.js");
-/* harmony import */ var react_payment_icons__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_payment_icons__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Addresses__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Addresses */ "./src/components/Pages/Addresses.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../helpers */ "./src/helpers.js");
-/* harmony import */ var _Order_Order__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Order/Order */ "./src/components/Pages/Order/Order.js");
-/* harmony import */ var _icons_BonusIcon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../icons/BonusIcon */ "./src/components/icons/BonusIcon.js");
-/* harmony import */ var _Modals_AuthModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../Modals/AuthModal */ "./src/components/Modals/AuthModal.js");
-/* harmony import */ var _ValidationResult__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../ValidationResult */ "./src/components/Pages/ValidationResult.js");
-/* harmony import */ var _AsapField__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./AsapField */ "./src/components/Pages/PaymentArea/AsapField.js");
-/* harmony import */ var _PersonCount_PersonCount__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./PersonCount/PersonCount */ "./src/components/Pages/PaymentArea/PersonCount/PersonCount.js");
-/* harmony import */ var _ChooseStock_ChooseStock__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ChooseStock/ChooseStock */ "./src/components/Pages/PaymentArea/ChooseStock/ChooseStock.js");
-/* harmony import */ var _Email_Email__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Email/Email */ "./src/components/Pages/PaymentArea/Email/Email.jsx");
-/* harmony import */ var _apple_icon_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./apple-icon.png */ "./src/components/Pages/PaymentArea/apple-icon.png");
-/* harmony import */ var _apple_icon_png__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_apple_icon_png__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _google_icon_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./google-icon.png */ "./src/components/Pages/PaymentArea/google-icon.png");
-/* harmony import */ var _google_icon_png__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_google_icon_png__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var _pay_icons_scss__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pay-icons.scss */ "./src/components/Pages/PaymentArea/pay-icons.scss");
-/* harmony import */ var _pay_icons_scss__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_pay_icons_scss__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var react_yandex_metrika__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-yandex-metrika */ "./node_modules/react-yandex-metrika/lib/index.js");
+/* harmony import */ var react_yandex_metrika__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_yandex_metrika__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_payment_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-payment-icons */ "./node_modules/react-payment-icons/build/index.js");
+/* harmony import */ var react_payment_icons__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_payment_icons__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _Addresses__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Addresses */ "./src/components/Pages/Addresses.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../helpers */ "./src/helpers.js");
+/* harmony import */ var _Order_Order__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Order/Order */ "./src/components/Pages/Order/Order.js");
+/* harmony import */ var _icons_BonusIcon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../icons/BonusIcon */ "./src/components/icons/BonusIcon.js");
+/* harmony import */ var _Modals_AuthModal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../Modals/AuthModal */ "./src/components/Modals/AuthModal.js");
+/* harmony import */ var _ValidationResult__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../ValidationResult */ "./src/components/Pages/ValidationResult.js");
+/* harmony import */ var _AsapField__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./AsapField */ "./src/components/Pages/PaymentArea/AsapField.js");
+/* harmony import */ var _PersonCount_PersonCount__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./PersonCount/PersonCount */ "./src/components/Pages/PaymentArea/PersonCount/PersonCount.js");
+/* harmony import */ var _ChooseStock_ChooseStock__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ChooseStock/ChooseStock */ "./src/components/Pages/PaymentArea/ChooseStock/ChooseStock.js");
+/* harmony import */ var _Email_Email__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Email/Email */ "./src/components/Pages/PaymentArea/Email/Email.jsx");
+/* harmony import */ var _apple_icon_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./apple-icon.png */ "./src/components/Pages/PaymentArea/apple-icon.png");
+/* harmony import */ var _apple_icon_png__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_apple_icon_png__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _google_icon_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./google-icon.png */ "./src/components/Pages/PaymentArea/google-icon.png");
+/* harmony import */ var _google_icon_png__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_google_icon_png__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _pay_icons_scss__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./pay-icons.scss */ "./src/components/Pages/PaymentArea/pay-icons.scss");
+/* harmony import */ var _pay_icons_scss__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_pay_icons_scss__WEBPACK_IMPORTED_MODULE_17__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -5543,6 +5548,14 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
       product.quantity = item.numberItems;
       return product;
     }));
+
+    _defineProperty(this, "checkAndCreateOrder", () => {
+      react_yandex_metrika__WEBPACK_IMPORTED_MODULE_1___default()("reachGoal", "click-place-order-for-amount");
+
+      if (this.checkOrder()) {
+        this.createOrder();
+      }
+    });
 
     _defineProperty(this, "getParamsForOrder", () => ({
       bonuses_applied: this.state.bonuses_applied,
@@ -5602,17 +5615,27 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
       });
     });
 
+    _defineProperty(this, "pickupPay", text => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "radio",
+      id: "on-pickup",
+      name: "payment-method",
+      value: "on-pickup",
+      onClick: this.setPayment.bind(this)
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      htmlFor: "on-pickup"
+    }, text)));
+
     this.mounted = true;
-    const deliveryMethod = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["getDeliveryMethod"])();
+    const deliveryMethod = Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["getDeliveryMethod"])();
     this.state = {
       promocode: null,
       definitions: this.props.definitions,
       restaurants: this.props.restaurants,
       bonusAccrualPercent: this.props.bonus_accrual_percent / 100,
-      total: Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["getPrice1"])(this.props.cart),
+      total: Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["getPrice1"])(this.props.cart),
       isAuthorized: this.props.isAuthorized,
       showModal: !this.props.isAuthorized,
-      total_due: Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["getPrice1"])(this.props.cart),
+      total_due: Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["getPrice1"])(this.props.cart),
       bonuses_applied: 0,
       items: this.getCartItems(),
       addresses: this.props.profile.addresses,
@@ -5681,7 +5704,7 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
 
   getCards() {
     if (this.mounted) {
-      Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["getRequest"])("/cards").then(res => {
+      Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["getRequest"])("/cards").then(res => {
         this.setState({
           cards: res.data.result
         });
@@ -5755,7 +5778,7 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
     const self = this;
 
     if (this.mounted) {
-      Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["getRequest"])("/checkout/time-available", {}).then(res => {
+      Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["getRequest"])("/checkout/time-available", {}).then(res => {
         let slots = {};
         res.data.result.map(item => {
           if (self.state.delivery_method === item.type) {
@@ -5766,12 +5789,6 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
           slots
         });
       });
-    }
-  }
-
-  checkAndCreateOrder() {
-    if (this.checkOrder()) {
-      this.createOrder();
     }
   }
 
@@ -5829,7 +5846,7 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
     });
 
     if (this.mounted) {
-      Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["postRequest"])("/order/" + actionId, params).then(res => {
+      Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["postRequest"])("/order/" + actionId, params).then(res => {
         if (res.data.success) {
           const data = res.data.result;
           const bonusesApplied = parseInt(res.data.result.order.bonuses_applied, 10);
@@ -5851,7 +5868,7 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
             window.location.href = "#/status/" + data.order.id;
           }
 
-          Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["fbPixel"])("macro");
+          Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["fbPixel"])("macro");
         } else {
           this.setState({
             errors: res.data.errors
@@ -5903,7 +5920,7 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
     };
 
     if (this.mounted) {
-      Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["postRequest"])("/order/pay-one-click", params).then(res => {
+      Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["postRequest"])("/order/pay-one-click", params).then(res => {
         if (res.data.success) {
           this.setCartEmpty(bonusesApplied);
           this.setState({
@@ -5956,10 +5973,10 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
 
   render() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
-      className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("page payment", {
+      className: classnames__WEBPACK_IMPORTED_MODULE_3___default()("page payment", {
         "hide-element": this.props.showMobileAuth
       })
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modals_AuthModal__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modals_AuthModal__WEBPACK_IMPORTED_MODULE_9__["default"], {
       modalTitle: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430",
       modalText: "\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0442\u0435\u043B\u0435\u0444\u043E\u043D, \u043A\u0443\u0434\u0430 \u043F\u0440\u0438\u0441\u043B\u0430\u0442\u044C \u0421\u041C\u0421 \u0441 \u043A\u043E\u0434\u043E\u043C \u043F\u043E\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043D\u0438\u044F",
       modalDescription: "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u0439\u0442\u0435\u0441\u044C \u0434\u043B\u044F \u043E\u0444\u043E\u0440\u043C\u043B\u0435\u043D\u0438\u044F \u0437\u0430\u043A\u0430\u0437\u0430",
@@ -5984,10 +6001,10 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
       className: "payment__blocks-wrapper left"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "payment__block"
-    }, this.addressesBlockContent), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonCount_PersonCount__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    }, this.addressesBlockContent), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonCount_PersonCount__WEBPACK_IMPORTED_MODULE_12__["default"], {
       cuttlery_quantity: this.state.cuttlery_quantity,
       changePersonCount: this.changePersonCount
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChooseStock_ChooseStock__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChooseStock_ChooseStock__WEBPACK_IMPORTED_MODULE_13__["default"], {
       bonuses: this.state.bonuses,
       setDueBonus: this.setDueBonus,
       setDuePromo: this.setDuePromo,
@@ -5997,7 +6014,7 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
       className: "payment__block-row payment__block"
     }, this.deliveryBlockContent, this.paymentBlockContent), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "payment__block-row payment__block"
-    }, this.commentBlockContent, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Email_Email__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    }, this.commentBlockContent, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Email_Email__WEBPACK_IMPORTED_MODULE_14__["default"], {
       invoiceEmail: this.state.invoiceEmail,
       setInvoiceEmail: this.setInvoiceEmail
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -6021,14 +6038,14 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "payment__block-title"
     }, "\u041E\u043F\u043B\u0430\u0442\u0430"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      src: _google_icon_png__WEBPACK_IMPORTED_MODULE_15___default.a,
+      src: _google_icon_png__WEBPACK_IMPORTED_MODULE_16___default.a,
       alt: ""
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      src: _apple_icon_png__WEBPACK_IMPORTED_MODULE_14___default.a,
+      src: _apple_icon_png__WEBPACK_IMPORTED_MODULE_15___default.a,
       alt: ""
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "payment__block-content payment-method"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.delivery_method === 1 ? this.pickupPay : "", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.pickupPay(this.state.delivery_method === 1 ? "В ресторане" : "Наличными"), !this.state.delivery_method === 1 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       type: "radio",
       id: "payment-card",
       name: "payment-method",
@@ -6054,18 +6071,6 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
     }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043A\u0430\u0440\u0442\u0443 \u0432 \u043B\u0438\u0447\u043D\u043E\u043C \u043A\u0430\u0431\u0438\u043D\u0435\u0442\u0435 \u0434\u043B\u044F \u0431\u044B\u0441\u0442\u0440\u043E\u0439 \u043E\u043F\u043B\u0430\u0442\u044B \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0433\u043E \u0437\u0430\u043A\u0430\u0437\u0430"));
   }
 
-  get pickupPay() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      type: "radio",
-      id: "on-pickup",
-      name: "payment-method",
-      value: "on-pickup",
-      onClick: this.setPayment.bind(this)
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-      htmlFor: "on-pickup"
-    }, "\u0412 \u0440\u0435\u0441\u0442\u043E\u0440\u0430\u043D\u0435"));
-  }
-
   get deliveryBlockContent() {
     const deliveryText = this.state.delivery_method === 1 ? "Время самовывоза" : "Время доставки";
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -6074,7 +6079,7 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
       className: "payment__block-title"
     }, deliveryText), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "payment__block-content delivery-method"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.restaurants.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AsapField__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.restaurants.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AsapField__WEBPACK_IMPORTED_MODULE_11__["default"], {
       schedule: this.props.restaurants[0].schedule,
       slots: this.state.slots.today.slots.length,
       setAsap: this.setAsap.bind(this)
@@ -6110,7 +6115,7 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
   get errors() {
     return this.state.errors.length ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "payment__block1"
-    }, this.state.errors.map((item, index) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ValidationResult__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    }, this.state.errors.map((item, index) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ValidationResult__WEBPACK_IMPORTED_MODULE_10__["default"], {
       key: `error_${index}`,
       error: item.message
     }))) : "";
@@ -6146,15 +6151,15 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       htmlFor: "subscribe"
     }, "\u041F\u043E\u0434\u043F\u0438\u0441\u0430\u0442\u044C\u0441\u044F \u043D\u0430 \u0430\u043A\u0446\u0438\u0438"))), this.errors, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      onClick: this.checkAndCreateOrder.bind(this),
-      className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("btn", {
+      onClick: this.checkAndCreateOrder,
+      className: classnames__WEBPACK_IMPORTED_MODULE_3___default()("btn", {
         "payment__button--disable": this.isButtonCreateOrderDisabled
       }, {
         loading: this.isProcessing
       })
-    }, "\u041E\u0444\u043E\u0440\u043C\u0438\u0442\u044C \u0437\u0430\u043A\u0430\u0437 \u043D\u0430 ", Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["formatCurrency"])(this.state.total_due)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "\u041E\u0444\u043E\u0440\u043C\u0438\u0442\u044C \u0437\u0430\u043A\u0430\u0437 \u043D\u0430 ", Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["formatCurrency"])(this.state.total_due)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "payment__order_bonuses"
-    }, "\u0411\u0443\u0434\u0435\u0442 \u043D\u0430\u0447\u0438\u0441\u043B\u0435\u043D\u043E ", Math.ceil(this.state.total_due * this.state.bonusAccrualPercent), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_BonusIcon__WEBPACK_IMPORTED_MODULE_7__["default"], null)));
+    }, "\u0411\u0443\u0434\u0435\u0442 \u043D\u0430\u0447\u0438\u0441\u043B\u0435\u043D\u043E ", Math.ceil(this.state.total_due * this.state.bonusAccrualPercent), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons_BonusIcon__WEBPACK_IMPORTED_MODULE_8__["default"], null)));
   }
 
   get isButtonCreateOrderDisabled() {
@@ -6166,7 +6171,7 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
   }
 
   get basket() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Order_Order__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Order_Order__WEBPACK_IMPORTED_MODULE_7__["default"], {
       bonusAccrualPercent: this.state.bonusAccrualPercent,
       order: this.state.items,
       total: this.state.total,
@@ -6175,7 +6180,7 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
   }
 
   get addressesBlockContent() {
-    return this.state.delivery_method === 1 ? this.restaurants : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Addresses__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    return this.state.delivery_method === 1 ? this.restaurants : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Addresses__WEBPACK_IMPORTED_MODULE_5__["default"], {
       mode: "payment",
       addresses: this.state.addresses,
       setAddresses: this.props.setAddresses.bind(this),
@@ -6196,7 +6201,7 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
       onClick: this.setCard.bind(this)
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       htmlFor: item.id
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_payment_icons__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_payment_icons__WEBPACK_IMPORTED_MODULE_4___default.a, {
       id: item.brand,
       style: {
         margin: 5,
@@ -6303,11 +6308,11 @@ class PaymentArea extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component
 }
 
 PaymentArea.propTypes = {
-  dadataToken: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-  cloudpaymentsPublicId: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-  clearCart: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
-  restaurants: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.instanceOf(Array).isRequired,
-  cart: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.instanceOf(Array).isRequired
+  dadataToken: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
+  cloudpaymentsPublicId: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
+  clearCart: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired,
+  restaurants: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.instanceOf(Array).isRequired,
+  cart: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.instanceOf(Array).isRequired
 };
 PaymentArea.defaultProps = {
   dadataToken: undefined,
@@ -9106,22 +9111,25 @@ ReactDOM.render(React.createElement(react_redux__WEBPACK_IMPORTED_MODULE_81__["P
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var reactjs_localstorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! reactjs-localstorage */ "./node_modules/reactjs-localstorage/react-localstorage.js");
 /* harmony import */ var reactjs_localstorage__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(reactjs_localstorage__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _AC__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../AC */ "./src/AC/index.js");
-/* harmony import */ var _store_initState__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/initState */ "./src/store/initState.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers */ "./src/helpers.js");
+/* harmony import */ var react_yandex_metrika__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-yandex-metrika */ "./node_modules/react-yandex-metrika/lib/index.js");
+/* harmony import */ var react_yandex_metrika__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_yandex_metrika__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _AC__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../AC */ "./src/AC/index.js");
+/* harmony import */ var _store_initState__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/initState */ "./src/store/initState.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers */ "./src/helpers.js");
 
 
 
 
 
-function cartReducer(cart = _store_initState__WEBPACK_IMPORTED_MODULE_2__["default"].cart, {
+
+function cartReducer(cart = _store_initState__WEBPACK_IMPORTED_MODULE_3__["default"].cart, {
   type,
   item,
   items,
   id
 }) {
   switch (type) {
-    case _AC__WEBPACK_IMPORTED_MODULE_1__["ADD_TO_CART"]:
+    case _AC__WEBPACK_IMPORTED_MODULE_2__["ADD_TO_CART"]:
       {
         const newCart = [...cart];
         const findId = newCart.findIndex(cartItem => cartItem.itemData.id === item.id);
@@ -9138,14 +9146,15 @@ function cartReducer(cart = _store_initState__WEBPACK_IMPORTED_MODULE_2__["defau
           });
         }
 
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["fbPixel"])("micro");
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["fbPixel"])("micro");
+        react_yandex_metrika__WEBPACK_IMPORTED_MODULE_1___default()("reachGoal", "add-item-to-cart");
         reactjs_localstorage__WEBPACK_IMPORTED_MODULE_0__["reactLocalStorage"].setObject("cart", {
           items: newCart
         });
         return newCart;
       }
 
-    case _AC__WEBPACK_IMPORTED_MODULE_1__["REMOVE_FROM_CART"]:
+    case _AC__WEBPACK_IMPORTED_MODULE_2__["REMOVE_FROM_CART"]:
       {
         const newCart = [...cart];
         const findId = newCart.findIndex(cartItem => cartItem.itemData.id === id);
@@ -9162,7 +9171,7 @@ function cartReducer(cart = _store_initState__WEBPACK_IMPORTED_MODULE_2__["defau
         return newCart;
       }
 
-    case _AC__WEBPACK_IMPORTED_MODULE_1__["REMOVE_ALL_ITEMS_FROM_CART"]:
+    case _AC__WEBPACK_IMPORTED_MODULE_2__["REMOVE_ALL_ITEMS_FROM_CART"]:
       {
         const newCart = [...cart];
         const findId = newCart.findIndex(cartItem => cartItem.itemData.id === id);
@@ -9173,7 +9182,7 @@ function cartReducer(cart = _store_initState__WEBPACK_IMPORTED_MODULE_2__["defau
         return newCart;
       }
 
-    case _AC__WEBPACK_IMPORTED_MODULE_1__["LOAD_CART"]:
+    case _AC__WEBPACK_IMPORTED_MODULE_2__["LOAD_CART"]:
       {
         const newCart = items.map(el => getCartItem(el));
         reactjs_localstorage__WEBPACK_IMPORTED_MODULE_0__["reactLocalStorage"].setObject("cart", {
@@ -9182,7 +9191,7 @@ function cartReducer(cart = _store_initState__WEBPACK_IMPORTED_MODULE_2__["defau
         return newCart;
       }
 
-    case _AC__WEBPACK_IMPORTED_MODULE_1__["CLEAR_CART"]:
+    case _AC__WEBPACK_IMPORTED_MODULE_2__["CLEAR_CART"]:
       {
         reactjs_localstorage__WEBPACK_IMPORTED_MODULE_0__["reactLocalStorage"].setObject("cart", {
           items: []
@@ -9480,4 +9489,4 @@ const store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducer
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.7604fd52b71fac6b532a.js.map
+//# sourceMappingURL=main.467d634169cd99dc6350.js.map
